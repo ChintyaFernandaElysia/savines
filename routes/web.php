@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Income
+Route::get('/income', [IncomeController::class, 'index']);
+Route::get('/income/add', [IncomeController::class, 'add']);
+Route::post('/income/store', [IncomeController::class, 'store']);
+Route::get('/income/edit/{id}', [IncomeController::class, 'edit']);
+Route::post('/income/update/{id}', [IncomeController::class, 'update']);
+Route::get('/income/destroy/{id}', [IncomeController::class, 'destroy']);
