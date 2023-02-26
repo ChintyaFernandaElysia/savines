@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tbclaim', function (Blueprint $table) {
+        Schema::create('tbclaims', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
             $table->timestamps();
@@ -24,7 +24,7 @@ return new class extends Migration
 			$table->integer('total_paid');
         });
 
-        Schema::create('tbdebt', function (Blueprint $table) {
+        Schema::create('tbdebts', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
             $table->timestamps();
@@ -35,20 +35,20 @@ return new class extends Migration
 			$table->integer('total_paid');
         });
 
-        Schema::create('tbexpense', function (Blueprint $table) {
+        Schema::create('tbexpenses', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
             $table->timestamps();
-            $table->string('category');
+            $table->string('title');
 			$table->string('description');
 			$table->integer('amount');
         });
 
-        Schema::create('tbincome', function (Blueprint $table) {
+        Schema::create('tbincomes', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
             $table->timestamps();
-            $table->string('category');
+            $table->string('title');
 			$table->string('description');
 			$table->integer('amount');
         });
@@ -66,14 +66,6 @@ return new class extends Migration
             $table->integer('user_id');
             $table->timestamps();
 			$table->integer('amount');
-        });
-
-        Schema::create('tbuser', function (Blueprint $table) {
-            $table->id('id');
-            $table->string('user_id');
-            $table->string('email');
-            $table->string('password');
-            $table->timestamps();
         });
         Schema::create('tbgoals', function (Blueprint $table) {
             $table->id();
