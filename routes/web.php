@@ -48,11 +48,4 @@ Route::middleware('auth')->group(function () {
     })->name('dashboard');
 });
 
-Route::controller(IncomeController::class)->prefix('incomes')->group(function () {
-    Route::get('', 'index')->name('incomes');
-    Route::get('create', 'create')->name('incomes.create');
-    Route::post('store', 'store')->name('incomes.store.simpan');
-    Route::get('edit/{id}', 'edit')->name('incomes.edit');
-    Route::post('edit/{id}', 'update')->name('incomes.update.update');
-    Route::get('destroy/{id}', 'destroy')->name('incomes.destroy');
-});
+
