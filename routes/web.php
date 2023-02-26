@@ -24,3 +24,5 @@ Route::post('/income/store', [IncomeController::class, 'store']);
 Route::get('/income/edit/{id}', [IncomeController::class, 'edit']);
 Route::post('/income/update/{id}', [IncomeController::class, 'update']);
 Route::get('/income/destroy/{id}', [IncomeController::class, 'destroy']);
+
+
