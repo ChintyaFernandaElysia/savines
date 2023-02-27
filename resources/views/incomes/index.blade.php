@@ -23,6 +23,7 @@
     <table class="table table-bordered">
         <tr>
             <th>No</th>
+            <th>Date</th>
             <th>Title</th>
             <th>Amount</th>
             <th>Description</th>
@@ -31,6 +32,7 @@
         @foreach ($incomes as $income)
         <tr>
             <td>{{ ++$i }}</td>
+            <td>{{ $income->date}}</td>
             <td>{{ $income->title }}</td>
             <td>{{ $income->amount }}</td>
             <td>{{ $income->description }}</td>
