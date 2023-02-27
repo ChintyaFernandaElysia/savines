@@ -34,8 +34,9 @@ class IncomeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'detail' => 'required',
+            'title' => 'required',
+            'amount' => 'required',
+            'description' => 'required',
         ]);
       
         Income::create($request->all());
@@ -76,8 +77,9 @@ class IncomeController extends Controller
     public function update(Request $request, Income $income)
     {
         $request->validate([
-            'name' => 'required',
-            'detail' => 'required',
+            'title' => 'required',
+            'amount' => 'required',
+            'description' => 'required',
         ]);
       
         $income->update($request->all());
