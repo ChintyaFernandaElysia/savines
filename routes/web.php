@@ -1,8 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BarangController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\IncomeController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,45 +16,52 @@ use App\Http\Controllers\IncomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//testttt angel
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-//Income
-// Route::get('/income', [IncomeController::class, 'index']);
-// Route::get('/income/add', [IncomeController::class, 'add']);
-// Route::post('/income/store', [IncomeController::class, 'store']);
-// Route::get('/income/edit/{id}', [IncomeController::class, 'edit']);
-// Route::post('/income/update/{id}', [IncomeController::class, 'update']);
-// Route::get('/income/destroy/{id}', [IncomeController::class, 'destroy']);
-
 
 Route::controller(AuthController::class)->group(function () {
-    Route::get('register', 'register')->name('register');
-    Route::post('register', 'registerStore')->name('register.store');
+	Route::get('register', 'register')->name('register');
+	Route::post('register', 'registerSimpan')->name('register.simpan');
 
-    Route::get('login', 'login')->name('login');
-    Route::post('login', 'loginAction')->name('login.action');
+	Route::get('login', 'login')->name('login');
+	Route::post('login', 'loginAksi')->name('login.aksi');
 
-    Route::get('logout', 'logout')->middleware('auth')->name('logout');
+	Route::get('logout', 'logout')->middleware('auth')->name('logout');
 });
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+	Route::get('dashboard', function () {
+		return view('dashboard');
+	})->name('dashboard');
 
-Route::controller(IncomeController::class)->prefix('incomes')->group(function () {
-    Route::get('', 'index')->name('incomes');
-    Route::get('create', 'create')->name('incomes.create');
-    Route::post('store', 'store')->name('incomes.store.simpan');
-    Route::get('edit/{id}', 'edit')->name('incomes.edit');
-    Route::post('edit/{id}', 'update')->name('incomes.update.update');
-    Route::get('destroy/{id}', 'destroy')->name('incomes.destroy');
+	// Route::controller(BarangController::class)->prefix('barang')->group(function () {
+	// 	Route::get('', 'index')->name('barang');
+	// 	Route::get('tambah', 'tambah')->name('barang.tambah');
+	// 	Route::post('tambah', 'simpan')->name('barang.tambah.simpan');
+	// 	Route::get('edit/{id}', 'edit')->name('barang.edit');
+	// 	Route::post('edit/{id}', 'update')->name('barang.tambah.update');
+	// 	Route::get('hapus/{id}', 'hapus')->name('barangg.hapus');
+	// });
+
+	// Route::controller(KategoriController::class)->prefix('kategori')->group(function () {
+	// 	Route::get('', 'index')->name('kategori');
+	// 	Route::get('tambah', 'tambah')->name('kategori.tambah');
+	// 	Route::post('tambah', 'simpan')->name('kategori.tambah.simpan');
+	// 	Route::get('edit/{id}', 'edit')->name('kategori.edit');
+	// 	Route::post('edit/{id}', 'update')->name('kategori.tambah.update');
+	// 	Route::get('hapus/{id}', 'hapus')->name('kategori.hapus');
+	// });
+
+	Route::controller(IncomeController::class)->prefix('incomes')->group(function () {
+		Route::get('', 'index')->name('incomes');
+		Route::get('create', 'create')->name('incomes.create');
+		Route::post('store', 'store')->name('incomes.store.simpan');
+		Route::get('edit/{id}', 'edit')->name('incomes.edit');
+		Route::post('edit/{id}', 'update')->name('incomes.update.update');
+		Route::get('destroy/{id}', 'destroy')->name('incomes.destroy');
+	});
+
+	//Route::resource('incomes', IncomeController::class);
 });

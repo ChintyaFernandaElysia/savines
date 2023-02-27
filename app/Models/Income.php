@@ -7,13 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Income extends Model
 {
-    use HasFactory;
+	use HasFactory;
 
-    protected $table = 'tbincomes';
+	protected $table = 'tbincomes';
 
-    protected $guarded = [
-        'id',
-        'created_at',
-        'updated_at	'
-    ];
+	protected $fillable = ['date','title', 'description', 'amount'];
+
 }
