@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('due_date');
             $table->string('debtor');
 			$table->string('description');
-			$table->integer('amount');
+			$table->string('amount');
 			$table->integer('total_paid');
             $table->foreign('user_id')
 			->references('id')->on('users')->onDelete('cascade');
@@ -33,7 +33,7 @@ return new class extends Migration
             $table->date('due_date');
             $table->string('claimer');
 			$table->string('description');
-			$table->integer('amount');
+			$table->string('amount');
 			$table->integer('total_paid');
             $table->foreign('user_id')
 			->references('id')->on('users')->onDelete('cascade');
@@ -45,7 +45,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('title');
 			$table->string('description');
-			$table->integer('amount');
+			$table->string('amount');
             //$table->foreign('user_id')
 			//->references('id')->on('users')->onDelete('cascade');
         });
@@ -56,7 +56,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('title');
 			$table->string('description');
-			$table->integer('amount');
+			$table->string('amount');
             //$table->foreign('user_id')
 			//->references('id')->on('users')->onDelete('cascade');
         });
@@ -75,7 +75,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
-			$table->integer('amount');
+			$table->string('amount');
             $table->foreign('user_id')
 			->references('id')->on('users')->onDelete('cascade');
         });
@@ -85,7 +85,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('title');
 			$table->string('description');
-			$table->integer('amount');
+			$table->string('amount');
             $table->foreign('user_id')
 			->references('id')->on('users')->onDelete('cascade');
         });

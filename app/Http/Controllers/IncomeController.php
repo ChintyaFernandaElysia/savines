@@ -4,25 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Income;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class IncomeController extends Controller
 {
 	public function index()
     {
         $incomes = Income::latest()->paginate(5);
-      
-        return view('incomes.index',compact('incomes'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
-            
 
-            
-        $date = "2022-02-22";
-        $newDate = Income::createFromFormat('Y-m-d', $date)
-                                ->format('m/d/Y');
-  
-        dd($newDate);
+        $date = Carbon::now()->format('Y-m-d');
+
+        return view('incomes.index',compact('incomes', 'date'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
-  
+
     /**
      * Show the form for creating a new resource.
      *
@@ -30,7 +25,8 @@ class IncomeController extends Controller
      */
     public function create()
     {
-        return view('incomes.create');
+        $date = Carbon::now()->format('Y-m-d');
+        return view('incomes.create', compact('date'));
     }
   
     /**

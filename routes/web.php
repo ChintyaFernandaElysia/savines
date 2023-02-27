@@ -5,6 +5,7 @@ use App\Http\Controllers\BarangController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ChartJSController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,7 +33,7 @@ Route::get('/', function () {
 	return view('welcome');
 });
 
-//Route::get('/', [DashboardController::class, 'index']);
+Route::get('/chart', [ChartJSController::class, 'index']);
 
 Route::middleware('auth')->group(function () {
 	Route::get('dashboard', function () {
