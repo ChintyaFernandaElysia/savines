@@ -1,14 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'Dashboard')
+@section('title', 'Income')
 
-@section('content')
+@section('contents')
 @extends('incomes.layout')
+
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Laravel 9 CRUD Example from scratch - ItSolutionStuff.com</h2>
-            </div>
+  
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('incomes.create') }}"> Create New Income</a>
             </div>
