@@ -45,7 +45,7 @@ class IncomeController extends Controller
       
         Income::create($request->all());
        
-        return redirect()->route('incomes.index')
+        return redirect()->route('incomes')
                         ->with('success','Income created successfully.');
     }
   
@@ -57,7 +57,7 @@ class IncomeController extends Controller
      */
     public function show(Income $income)
     {
-        return view('incomes.show',compact('income'));
+        return view('incomes',compact('income'));
     }
   
     /**

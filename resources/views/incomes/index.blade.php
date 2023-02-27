@@ -39,7 +39,7 @@
             <td>
                 <form action="{{ route('incomes.destroy',$income->id) }}" method="POST">
 
-                    <a class="btn btn-info" href="{{ route('incomes.show',$income->id) }}">Show</a>
+                    <a class="btn btn-info" href="{{ route('incomes',$income->id) }}">Show</a>
 
                     <a class="btn btn-primary" href="{{ route('incomes.edit',$income->id) }}">Edit</a>
 
