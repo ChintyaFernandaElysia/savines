@@ -11,6 +11,6 @@ class Income extends Model
 
 	protected $table = 'tbincomes';
 
-	protected $fillable = ['date','title', 'description', 'amount'];
+	protected $guarded = ['id','created_at','update_at'];
 
 }
