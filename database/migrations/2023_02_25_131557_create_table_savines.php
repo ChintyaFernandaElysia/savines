@@ -41,24 +41,24 @@ return new class extends Migration
 
         Schema::create('tbexpenses', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            //$table->unsignedBigInteger('user_id');
             $table->timestamps();
             $table->string('title');
 			$table->string('description');
 			$table->integer('amount');
-            $table->foreign('user_id')
-			->references('id')->on('users')->onDelete('cascade');
+            //$table->foreign('user_id')
+			//->references('id')->on('users')->onDelete('cascade');
         });
 
         Schema::create('tbincomes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            //$table->unsignedBigInteger('user_id');
             $table->timestamps();
             $table->string('title');
 			$table->string('description');
 			$table->integer('amount');
-            $table->foreign('user_id')
-			->references('id')->on('users')->onDelete('cascade');
+            //$table->foreign('user_id')
+			//->references('id')->on('users')->onDelete('cascade');
         });
 
         Schema::create('tbnotes', function (Blueprint $table) {

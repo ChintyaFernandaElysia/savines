@@ -13,6 +13,14 @@ class IncomeController extends Controller
       
         return view('incomes.index',compact('incomes'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
+            
+
+            
+        $date = "2022-02-22";
+        $newDate = Income::createFromFormat('Y-m-d', $date)
+                                ->format('m/d/Y');
+  
+        dd($newDate);
     }
   
     /**
