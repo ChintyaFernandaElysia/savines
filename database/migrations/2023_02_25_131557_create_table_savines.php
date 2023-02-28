@@ -61,17 +61,6 @@ return new class extends Migration
 			//->references('id')->on('users')->onDelete('cascade');
         });
 
-        Schema::create('tbincomes', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->timestamps();
-            $table->string('title');
-			$table->string('description');
-			$table->string('amount');
-            $table->foreign('user_id')
-			->references('id')->on('users')->onDelete('cascade');
-        });
-
         Schema::create('tbnotes', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
