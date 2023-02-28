@@ -35,8 +35,10 @@ class IncomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Income $income)
     {
+        
+
         $request->validate([
             'title' => 'required',
             'amount' => 'required',
@@ -66,9 +68,9 @@ class IncomeController extends Controller
      * @param  \App\Models\Income $income
      * @return \Illuminate\Http\Response
      */
-    public function edit(Income $income)
+    public function edit(Income $income, $id)
     {
-        return view('incomes.edit',compact('income'));
+        return view('incomes.edit',compact('income', 'id'));
     }
   
     /**
@@ -78,8 +80,10 @@ class IncomeController extends Controller
      * @param  \App\Models\Income $income
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Income $income)
+    public function update(Request $request, Income $income, $id)
     {
+        $income = Income::find($id);
+
         $request->validate([
             'title' => 'required',
             'amount' => 'required',
@@ -88,8 +92,8 @@ class IncomeController extends Controller
       
         $income->update($request->all());
       
-        return redirect()->route('incomes.index')
-                        ->with('success','Income updated successfully');
+        return view('incomes.edit',compact('id'))
+                ->with('success','Income updated successfully');
     }
     /**
      * Remove the specified resource from storage.
@@ -97,9 +101,9 @@ class IncomeController extends Controller
      * @param  \App\Models\Income $income
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Income $income)
+    public function destroy(Income $income, $id)
     {
-        $income->delete();
+        $income->destroy($id);
 
         return redirect()->route('incomes')
                         ->with('success','Income deleted successfully');
