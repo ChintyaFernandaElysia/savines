@@ -19,10 +19,10 @@ class DashboardController extends Controller
                     ->groupBy(DB::raw("month_name"))
                     ->orderBy('id','ASC')
                     ->pluck('count', 'month_name');
- 
+
         $labels = $users->keys();
         $data = $users->values();
-              
+
         return view('chart', compact('labels', 'data'));
     }
 }
