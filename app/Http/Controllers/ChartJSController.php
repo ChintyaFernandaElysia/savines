@@ -31,7 +31,7 @@ class ChartJSController extends Controller
         ->GroupBy(Income::raw("Month(created_at)"))
         ->pluck('amount');
 
-        // TEST;
+        // TEST 2
 
 
         $month = Income::select(Income::raw("MONTHNAME(created_at) as month"))
