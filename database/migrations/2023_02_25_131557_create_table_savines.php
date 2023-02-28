@@ -15,33 +15,33 @@ return new class extends Migration
     {
         Schema::create('tbclaims', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->integer('user_id');
             $table->timestamps();
             $table->date('due_date');
             $table->string('debtor');
 			$table->string('description');
 			$table->string('amount');
 			$table->integer('total_paid');
-            $table->foreign('user_id')
-			->references('id')->on('users')->onDelete('cascade');
+            // $table->foreign('user_id')
+			// ->references('id')->on('users')->onDelete('cascade');
         });
 
         Schema::create('tbdebts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->integer('user_id');
             $table->timestamps();
             $table->date('due_date');
             $table->string('claimer');
 			$table->string('description');
 			$table->string('amount');
 			$table->integer('total_paid');
-            $table->foreign('user_id')
-			->references('id')->on('users')->onDelete('cascade');
+            // $table->foreign('user_id')
+			// ->references('id')->on('users')->onDelete('cascade');
         });
 
         Schema::create('tbexpenses', function (Blueprint $table) {
             $table->id();
-            //$table->unsignedBigInteger('user_id');
+            //$table->integer('user_id');
             $table->timestamps();
             $table->string('title');
 			$table->string('description');
@@ -52,7 +52,7 @@ return new class extends Migration
 
         Schema::create('tbincomes', function (Blueprint $table) {
             $table->id();
-            //$table->unsignedBigInteger('user_id');
+            //$table->integer('user_id');
             $table->timestamps();
             $table->string('title');
 			$table->string('description');
@@ -63,31 +63,31 @@ return new class extends Migration
 
         Schema::create('tbnotes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->integer('user_id');
             $table->timestamps();
             $table->string('title');
 			$table->string('description');
-            $table->foreign('user_id')
-			->references('id')->on('users')->onDelete('cascade');
+            // $table->foreign('user_id')
+			// ->references('id')->on('users')->onDelete('cascade');
         });
 
         Schema::create('tbsavings', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->integer('user_id');
             $table->timestamps();
 			$table->string('amount');
-            $table->foreign('user_id')
-			->references('id')->on('users')->onDelete('cascade');
+            // $table->foreign('user_id')
+			// ->references('id')->on('users')->onDelete('cascade');
         });
         Schema::create('tbgoals', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->integer('user_id');
             $table->timestamps();
             $table->string('title');
 			$table->string('description');
 			$table->string('amount');
-            $table->foreign('user_id')
-			->references('id')->on('users')->onDelete('cascade');
+            // $table->foreign('user_id')
+			// ->references('id')->on('users')->onDelete('cascade');
         });
         
     }

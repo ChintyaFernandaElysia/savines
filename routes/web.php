@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\IncomeController;
+use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ChartJSController;
 use Illuminate\Support\Facades\Route;
@@ -33,7 +34,7 @@ Route::get('/', function () {
 	return view('welcome');
 });
 
-Route::get('/chart', [DashboardController::class, 'chart']);
+Route::get('/chart', [ChartJSController::class, 'chart']);
 
 Route::middleware('auth')->group(function () {
 	Route::get('dashboard', [DashboardController::class, 'index'])
@@ -67,6 +68,15 @@ Route::middleware('auth')->group(function () {
 		Route::get('edit/{id}', 'edit')->name('incomes.edit');
 		Route::post('edit/{id}', 'update')->name('incomes.update');
 		Route::get('destroy/{id}', 'destroy')->name('incomes.destroy');
+	});
+
+	Route::controller(ExpenseController::class)->prefix('expenses')->group(function () {
+		Route::get('', 'index')->name('expenses');
+		Route::get('create', 'create')->name('expenses.create');
+		Route::post('store', 'store')->name('expenses.store');
+		Route::get('edit/{id}', 'edit')->name('expenses.edit');
+		Route::post('edit/{id}', 'update')->name('expenses.update');
+		Route::get('destroy/{id}', 'destroy')->name('expenses.destroy');
 	});
 
 	//Route::resource('incomes', IncomeController::class);
