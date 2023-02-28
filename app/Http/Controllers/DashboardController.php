@@ -10,7 +10,19 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('dashboard');
+        $users = Income::select(DB::raw("COUNT(*) as count"), DB::raw("MONTHNAME(created_at) as month_name"))
+        ->whereYear('created_at', date('Y'))
+        ->groupBy(DB::raw("month_name"))
+        ->orderBy('id','ASC')
+        ->pluck('count', 'month_name');
+
+        $labels = $users->keys();
+        $data = $users->values();
+
+        // dd($users);
+
+        return view('dashboard', compact('labels', 'data'));
+        // return view('dashboard');
     }
     public function chart()
     {
@@ -22,6 +34,8 @@ class DashboardController extends Controller
 
         $labels = $users->keys();
         $data = $users->values();
+
+        // dd($users);
 
         return view('chart', compact('labels', 'data'));
     }
