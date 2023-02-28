@@ -10,23 +10,24 @@ class IncomeController extends Controller
 {
 	public function index()
     {
+        $data = Income::all();
+
         $incomes = Income::oldest()->paginate(5);
 
         $date = Carbon::now()->format('Y-m-d');
 
-        return view('incomes.index',compact('incomes', 'date'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('incomes.index',compact('incomes', 'date'),[
+            'title' => 'Income',
+            'data' => $data
+        ])->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $date = Carbon::now()->format('Y-m-d');
-        return view('incomes.create', compact('date'));
+        return view('incomes.create', compact('date'),[
+            'title' => 'Income'
+        ]);
     }
   
     /**
@@ -35,7 +36,7 @@ class IncomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Income $income)
+    public function store(Request $request)
     {
         
 
@@ -51,15 +52,17 @@ class IncomeController extends Controller
                         ->with('success','Income created successfully.');
     }
   
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Income $income
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Income $income)
+    public function read(Income $income)
     {
-        return view('incomes',compact('income'));
+        $incomes = Income::oldest()->paginate(5);
+
+        $date = Carbon::now()->format('Y-m-d');
+
+        return view('incomes.read',compact('incomes', 'date'),[
+            'title' => 'Income'
+        ])->with('i', (request()->input('page', 1) - 1) * 5);
+
+        // return view('incomes',compact('income'));
     }
   
     /**
@@ -68,9 +71,9 @@ class IncomeController extends Controller
      * @param  \App\Models\Income $income
      * @return \Illuminate\Http\Response
      */
-    public function edit(Income $income, $id)
+    public function edit(Income $income)
     {
-        return view('incomes.edit',compact('income', 'id'));
+        return view('incomes.edit',compact('income'));
     }
   
     /**
@@ -80,10 +83,8 @@ class IncomeController extends Controller
      * @param  \App\Models\Income $income
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Income $income, $id)
+    public function update(Request $request, Income $income)
     {
-        $income = Income::find($id);
-
         $request->validate([
             'title' => 'required',
             'amount' => 'required',
@@ -92,8 +93,8 @@ class IncomeController extends Controller
       
         $income->update($request->all());
       
-        return view('incomes.edit',compact('id'))
-                ->with('success','Income updated successfully');
+        return redirect()->route('incomes.index')
+                        ->with('success','Income updated successfully');
     }
     /**
      * Remove the specified resource from storage.
@@ -101,9 +102,9 @@ class IncomeController extends Controller
      * @param  \App\Models\Income $income
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Income $income, $id)
+    public function destroy(Income $income)
     {
-        $income->destroy($id);
+        $income->delete();
 
         return redirect()->route('incomes')
                         ->with('success','Income deleted successfully');

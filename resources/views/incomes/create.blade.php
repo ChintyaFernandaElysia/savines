@@ -1,6 +1,6 @@
-@extends('incomes.layout')
+{{-- @extends('incomes.layout') --}}
   
-@section('content')
+{{-- @section('content') --}}
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
@@ -26,6 +26,8 @@
 <form action="{{ route('incomes.store') }}" method="POST">
     @csrf
   
+    <input type="text" name="user_id" id="user_id" value="{{ auth()->user()->id }}" hidden/>
+
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
@@ -57,4 +59,4 @@
     </div>
    
 </form>
-@endsection
+{{-- @endsection --}}

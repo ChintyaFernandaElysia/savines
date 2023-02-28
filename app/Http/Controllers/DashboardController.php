@@ -24,7 +24,9 @@ class DashboardController extends Controller
 
         // dd($users);
 
-        return view('dashboard', compact('labels', 'data'));
+        return view('dashboard', compact('labels', 'data'), [
+               'title' => 'Dashboard', 
+            ]);
         // return view('dashboard');
     }
     // public function chart()

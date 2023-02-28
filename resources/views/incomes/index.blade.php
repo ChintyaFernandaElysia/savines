@@ -3,16 +3,18 @@
 @section('title', 'Income')
 
 @section('contents')
-@extends('incomes.layout')
+{{-- @extends('incomes.layout') --}}
 
     <div class="row">
         <div class="col-lg-12 margin-tb">
   
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('incomes.create') }}"> Create New Income</a>
+                {{-- <a class="btn btn-success" href="{{ route('incomes.create') }}">+ Add Data</a> --}}
+                <button class="btn btn-success" onCLick="create()">+ Add Data</button>
             </div>
         </div>
     </div>
+
 
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
@@ -20,40 +22,114 @@
         </div>
     @endif
 
-    <table class="table table-bordered">
-        <tr>
-            <th>No</th>
-            <th>Date</th>
-            <th>Title</th>
-            <th>Amount</th>
-            <th>Description</th>
-            <th width="280px">Action</th>
-        </tr>
-        @foreach ($incomes as $income)
-        <tr>
-            <td>{{ $income->id }}</td>
-            <td>{{ $date}}</td>
-            <td>{{ $income->title }}</td>
-            <td>{{ $income->amount }}</td>
-            <td>{{ $income->description }}</td>
-            <td>
-                <form action="{{ route('incomes.destroy',$income->id) }}" method="POST">
+    <div id="read" class="mt-3">
 
-                    {{-- <a class="btn btn-info" href="{{ route('incomes',$income->id) }}">Show</a> --}}
+    </div>
 
-                    <a class="btn btn-primary" href="{{ route('incomes.edit',$income->id) }}">Edit</a>
+{!! $incomes->links() !!}
 
-                    @csrf
-                    @method('DELETE')
-        
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-            </td>
-        </tr>
-        @endforeach
-    </table>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="page" class="p-2"></div>
+            </div>
+            </div>
+        </div>
+        </div>
 
-    {!! $incomes->links() !!}
-    @endsection
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    
+    <script>
+        // Jquery ajax
+        $(document).ready(function(){
+            read()
+        });
+
+        // show database
+        function read() {
+            console.log('tekan read()')
+            $.get("{{url('incomes/read')}}", {}, function(data, status){
+                $("#read").html(data);
+            });
+
+        }
+
+        function create() {
+            console.log('tekan create()')
+            $.get("{{url('incomes/create')}}", {}, function(data, status){
+                $("#exampleModalLabel").html('Create Product')
+                $("#page").html(data);
+                $("#exampleModal").modal('show');
+            });
+        }
+
+        function store() {
+            console.log('tekan store()')
+            var name = $("#name").val();
+            $.ajax({
+                type : "get",
+                url : "{{url('store')}}",
+                data : "name=" + name,
+                success:function(data){
+                    $(".btn-close").click();
+                    show();
+                }
+            });
+        }
+
+        function show(id) {
+            console.log('tekan show()')
+            $.get("{{url('incomes')}}/" + id, {}, function(data, status){
+                $("#exampleModalLabel").html('Edit Product')
+                $("#page").html(data);
+                $("#exampleModal").modal('show');
+            });
+        }
+
+        function update(id) {
+            console.log('tekan update()')
+            var name = $("#name").val();
+            $.ajax({
+                type : "get",
+                url : "{{url('update')}}/" + id,
+                data : 
+                "title=" + title +
+                "amount=" + amount +
+                "description=" + description,
+
+                success:function(data){
+                    console.log('update data sukses')
+                    $(".btn-close").click();
+                    show();
+                }
+            });
+        }
+
+        function destroy(id) {
+            console.log('tekan delete()')
+            // confirm("Apa yakin untuk hapus data?")
+            $.ajax({
+                type : "get",
+                url : "{{url('incomes/destroy')}}/" + id,
+                data : 
+                "title=" + title +
+                "amount=" + amount +
+                "description=" + description,
+
+                success:function(data){
+                    console.log('delete data sukses')
+                    $(".btn-close").click();
+                    read();
+                }
+            });
+        }
+    </script>
+@endsection
   
 
