@@ -36,9 +36,11 @@ Route::get('/', function () {
 Route::get('/chart', [DashboardController::class, 'chart']);
 
 Route::middleware('auth')->group(function () {
-	Route::get('dashboard', function () {
-		return view('dashboard');
-	})->name('dashboard');
+	Route::get('dashboard', [DashboardController::class, 'index'])
+	->name('dashboard');
+
+    // Route::get('/product', [ProductController::class, 'index']);
+
 
 	// Route::controller(BarangController::class)->prefix('barang')->group(function () {
 	// 	Route::get('', 'index')->name('barang');
