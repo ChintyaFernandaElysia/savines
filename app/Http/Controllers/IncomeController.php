@@ -101,7 +101,7 @@ class IncomeController extends Controller
     {
         $income->delete();
 
-        return redirect()->route('incomes.index')
+        return redirect()->route('incomes')
                         ->with('success','Income deleted successfully');
     }
 }

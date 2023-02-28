@@ -67,7 +67,7 @@ Route::middleware('auth')->group(function () {
 		Route::post('store', 'store')->name('incomes.store');
 		Route::get('edit/{id}', 'edit')->name('incomes.edit');
 		Route::post('edit/{id}', 'update')->name('incomes.update');
-		Route::get('destroy/{id}', 'destroy')->name('incomes.destroy');
+		Route::delete('destroy/{id}', 'destroy')->name('incomes.destroy');
 	});
 
 	Route::controller(ExpenseController::class)->prefix('expenses')->group(function () {
