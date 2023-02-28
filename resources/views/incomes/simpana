@@ -1,4 +1,17 @@
-@extends('incomes.layout')
+                <form action="{{ route('incomes.destroy',$income->id) }}" method="POST">
+    
+                    {{-- <a class="btn btn-info" href="{{ route('incomes',$income->id) }}">Show</a> --}}
+    
+                    <a class="btn btn-primary" href="{{ route('incomes.edit',$income->id) }}">Edit</a>
+    
+                    @csrf
+                    @method('DELETE')
+        
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+
+
+                @extends('incomes.layout')
   
 @section('content')
     <div class="row">

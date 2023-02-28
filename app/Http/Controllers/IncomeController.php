@@ -10,31 +10,26 @@ class IncomeController extends Controller
 {
 	public function index()
     {
+        $data = Income::all();
+
         $incomes = Income::oldest()->paginate(5);
 
         $date = Carbon::now()->format('Y-m-d');
 
-        return view('incomes.index',compact('incomes', 'date'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('incomes.index',compact('incomes', 'date'),[
+            'title' => 'Income',
+            'data' => $data
+        ])->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $date = Carbon::now()->format('Y-m-d');
-        return view('incomes.create', compact('date'));
+        return view('incomes.create', compact('date'),[
+            'title' => 'Income'
+        ]);
     }
   
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -49,59 +44,58 @@ class IncomeController extends Controller
                         ->with('success','Income created successfully.');
     }
   
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Income $income
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Income $income)
+    public function read(Income $income)
     {
-        return view('incomes',compact('income'));
+        $incomes = Income::oldest()->paginate(5);
+
+        $date = Carbon::now()->format('Y-m-d');
+
+        return view('incomes.read',compact('incomes', 'date'),[
+            'title' => 'Income'
+        ])->with('i', (request()->input('page', 1) - 1) * 5);
+
+        // return view('incomes',compact('income'));
     }
-  
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Income $income
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Income $income)
+
+    // public function details(Income $income)
+    // {
+    //     return view('incomes.details',compact('income'));
+    // }
+
+    public function details($id)
     {
-        return view('incomes.edit',compact('income'));
-    }
-  
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Income $income
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Income $income)
-    {
-        $request->validate([
-            'title' => 'required',
-            'amount' => 'required',
-            'description' => 'required',
+        $data = Income::findOrFail($id);
+
+        $date = Carbon::now()->format('Y-m-d');
+
+        return view('incomes.details', compact('date'),[
+            'data' => $data,
+            'title' => 'Income'
         ]);
+    }
+
+    public function update(Request $request)
+    {
+        $data = Income::findOrFail($request->id);
       
-        $income->update($request->all());
-      
-        return redirect()->route('incomes.index')
+        $data->title = $request->title;
+        $data->amount = $request->amount;
+        $data->description = $request->description;
+        
+        // dd($data);
+        $data->save();
+        
+        return redirect()->route('incomes')
                         ->with('success','Income updated successfully');
     }
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Income $income
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Income $income)
-    {
-        $income->delete();
 
-        return redirect()->route('incomes.index')
+    public function destroy($id)
+    {
+        $data = Income::findOrFail($id);
+
+        $data->delete();
+
+        return redirect()->route('incomes')
                         ->with('success','Income deleted successfully');
     }
 }

@@ -13,6 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
+        Schema::create('tbincomes', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->timestamps();
+            $table->string('title');
+			$table->string('description');
+			$table->string('amount');
+            $table->foreign('user_id')
+			->references('id')->on('users')->onDelete('cascade');
+        });
+
         Schema::create('tbclaims', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
@@ -40,17 +51,6 @@ return new class extends Migration
         });
 
         Schema::create('tbexpenses', function (Blueprint $table) {
-            $table->id();
-            //$table->unsignedBigInteger('user_id');
-            $table->timestamps();
-            $table->string('title');
-			$table->string('description');
-			$table->string('amount');
-            //$table->foreign('user_id')
-			//->references('id')->on('users')->onDelete('cascade');
-        });
-
-        Schema::create('tbincomes', function (Blueprint $table) {
             $table->id();
             //$table->unsignedBigInteger('user_id');
             $table->timestamps();
