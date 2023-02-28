@@ -16,7 +16,7 @@ class AuthController extends Controller
 		return view('auth/register');
 	}
 
-	public function registerSimpan(Request $request)
+	public function registerStore(Request $request)
 	{
 		Validator::make($request->all(), [
 			'name' => 'required',
@@ -38,7 +38,7 @@ class AuthController extends Controller
 		return view('auth/login');
 	}
 
-	public function loginAksi(Request $request)
+	public function loginAction(Request $request)
 	{
 		Validator::make($request->all(), [
 			'email' => 'required|email',
