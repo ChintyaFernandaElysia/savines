@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Income;
 use PDF;
-use DB;
+use Illuminate\Support\Facades\DB;
     
 class ChartJSController extends Controller
 {
@@ -17,28 +17,21 @@ class ChartJSController extends Controller
      */
     public function index()
     {
-        // $users = User::select(Income::raw("COUNT(*) as count"), Income::raw("MONTHNAME(created_at) as month_name"))
-        //             ->whereYear('created_at', date('Y'))
-        //             ->groupBy(Income::raw("month_name"))
-        //             ->orderBy('id','ASC')
-        //             ->pluck('count', 'month_name');
+        $incomes = Income::select(
+                        DB::raw('SUM(click) as total_click'), 
+                        DB::raw('SUM(viewer) as total_viewer')
+                    )
+                    ->orderBy(DB::raw("YEAR(created_at)"))
+                    ->groupBy(DB::raw("YEAR(created_at)"))
+                    ->get();
 
-        // $labels = $users->keys();
-        // $data = $users->values();
+        $result[] = ['Clicks','Viewers'];
+        foreach ($incomes as $key => $value) {
+            $result[++$key] = ["Clicks", (int)$value->total_click];
+            $result[++$key] = ["Views", (int)$value->total_viewer];
+        }
 
-        // return view('chart', compact('labels', 'data'));
-        $amount = Income::select(Income::raw("CAST(SUM(amount) as int) as amount"))
-        ->GroupBy(Income::raw("Month(created_at)"))
-        ->pluck('amount');
-
-        // TEST 2
-
-
-        $month = Income::select(Income::raw("MONTHNAME(created_at) as month"))
-        ->GroupBy(Income::raw("MONTHNAME(created_at)"))
-        ->pluck('month');
-
-
-        return view('dashboard', compact('amount', 'month'));
+        return view('chart', compact('result'));
     }
+    
 }
