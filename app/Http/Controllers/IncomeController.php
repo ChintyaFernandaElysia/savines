@@ -10,7 +10,7 @@ class IncomeController extends Controller
 {
 	public function index()
     {
-        $incomes = Income::latest()->paginate(5);
+        $incomes = Income::oldest()->paginate(5);
 
         $date = Carbon::now()->format('Y-m-d');
 

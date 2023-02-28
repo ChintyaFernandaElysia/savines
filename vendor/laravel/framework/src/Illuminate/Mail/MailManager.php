@@ -171,16 +171,8 @@ class MailManager implements FactoryContract
     {
         $factory = new EsmtpTransportFactory;
 
-        $scheme = $config['scheme'] ?? null;
-
-        if (! $scheme) {
-            $scheme = ! empty($config['encryption']) && $config['encryption'] === 'tls'
-                ? (($config['port'] == 465) ? 'smtps' : 'smtp')
-                : '';
-        }
-
         $transport = $factory->create(new Dsn(
-            $scheme,
+            ! empty($config['encryption']) && $config['encryption'] === 'tls' ? (($config['port'] == 465) ? 'smtps' : 'smtp') : '',
             $config['host'],
             $config['username'] ?? null,
             $config['password'] ?? null,
@@ -279,7 +271,7 @@ class MailManager implements FactoryContract
      * Create an instance of the Symfony Mailgun Transport driver.
      *
      * @param  array  $config
-     * @return \Symfony\Component\Mailer\Transport\TransportInterface
+     * @return \Symfony\Component\Mailer\Bridge\Mailgun\Transport\MailgunApiTransport
      */
     protected function createMailgunTransport(array $config)
     {

@@ -7,7 +7,7 @@
                 <h2>Edit Income</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('incomes.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('incomes') }}"> Back</a>
             </div>
         </div>
     </div>

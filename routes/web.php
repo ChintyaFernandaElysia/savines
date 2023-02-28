@@ -33,7 +33,7 @@ Route::get('/', function () {
 	return view('welcome');
 });
 
-Route::get('/chart', [ChartJSController::class, 'index']);
+Route::get('/chart', [DashboardController::class, 'chart']);
 
 Route::middleware('auth')->group(function () {
 	Route::get('dashboard', function () {

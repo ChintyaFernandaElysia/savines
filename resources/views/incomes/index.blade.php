@@ -31,7 +31,7 @@
         </tr>
         @foreach ($incomes as $income)
         <tr>
-            <td>{{ ++$i }}</td>
+            <td>{{ $income->id }}</td>
             <td>{{ $date}}</td>
             <td>{{ $income->title }}</td>
             <td>{{ $income->amount }}</td>
@@ -39,7 +39,7 @@
             <td>
                 <form action="{{ route('incomes.destroy',$income->id) }}" method="POST">
 
-                    <a class="btn btn-info" href="{{ route('incomes',$income->id) }}">Show</a>
+                    {{-- <a class="btn btn-info" href="{{ route('incomes',$income->id) }}">Show</a> --}}
 
                     <a class="btn btn-primary" href="{{ route('incomes.edit',$income->id) }}">Edit</a>
 
