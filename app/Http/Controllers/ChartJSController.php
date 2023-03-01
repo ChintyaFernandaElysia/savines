@@ -17,21 +17,13 @@ class ChartJSController extends Controller
      */
     public function index()
     {
-        $incomes = Income::select(
-                        DB::raw('SUM(click) as total_click'), 
-                        DB::raw('SUM(viewer) as total_viewer')
-                    )
-                    ->orderBy(DB::raw("YEAR(created_at)"))
-                    ->groupBy(DB::raw("YEAR(created_at)"))
-                    ->get();
-
-        $result[] = ['Clicks','Viewers'];
-        foreach ($incomes as $key => $value) {
-            $result[++$key] = ["Clicks", (int)$value->total_click];
-            $result[++$key] = ["Views", (int)$value->total_viewer];
-        }
-
-        return view('chart', compact('result'));
+        // $users = User::select('users.id')
+        //         ->join('tbincomes', 'tbincomes.id', '=', 'users.id')
+        //         ->get();
+        $result = DB::select(DB::raw("select count()"))
+                ->join('tbincomes', 'tbincomes.id', '=', 'users.id')
+                ->get();
+        return view('chart');
     }
     
 }

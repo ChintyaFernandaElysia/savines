@@ -30,11 +30,11 @@
       <span>Incomes</span></a>
   </li>
 
-  <li class="nav-item">
+  {{-- <li class="nav-item">
     <a class="nav-link" href="{{ route('expenses') }}">
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span>Expenses</span></a>
-  </li>
+  </li> --}}
 
 	{{-- @if (auth()->user()->level == 'Admin')
   <li class="nav-item">
