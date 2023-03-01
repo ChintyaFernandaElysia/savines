@@ -30,16 +30,8 @@ class IncomeController extends Controller
         ]);
     }
   
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        
-
         $request->validate([
             'title' => 'required',
             'amount' => 'required',
@@ -65,46 +57,49 @@ class IncomeController extends Controller
         // return view('incomes',compact('income'));
     }
   
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Income $income
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Income $income)
+    // public function edit(Income $income)
+    // {
+    //     return view('incomes.edit',compact('income'));
+    // }
+
+    public function details($id)
     {
-        return view('incomes.edit',compact('income'));
+        $data = Income::findOrFail($id);
+        $date = Carbon::now()->format('Y-m-d');
+        return view('incomes.details', compact('date'),[
+            'data' => $data,
+            'title' => 'Income'
+        ]);
     }
   
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Income $income
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Income $income)
+    public function update(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'amount' => 'required',
-            'description' => 'required',
-        ]);
+        // $request->validate([
+        //     'title' => 'required',
+        //     'amount' => 'required',
+        //     'description' => 'required',
+        // ]);
       
-        $income->update($request->all());
+        // $income->update($request->all());
+
+        $data = Income::findOrFail($request->id);
+
+        $data->title = $request->title;
+        $data->amount = $request->amount;
+        $data->description = $request->description;
+        
+        // dd($data);
+        $data->save();
       
-        return redirect()->route('incomes.index')
+        return redirect()->route('incomes')
                         ->with('success','Income updated successfully');
     }
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Income $income
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Income $income)
+
+    public function destroy($id)
     {
-        $income->delete();
+        $data = Income::findOrFail($id);
+
+        $data->delete();
 
         return redirect()->route('incomes')
                         ->with('success','Income deleted successfully');

@@ -1,6 +1,6 @@
-@extends('incomes.layout')
+{{-- @extends('incomes.') --}}
   
-@section('content')
+{{-- @section('content') --}}
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -85,4 +85,4 @@
         <button class="btn btn-danger" onClick="delete({{ $data->id }})">Delete</button>
     </div>
 </form>
-@endsection
+{{-- @endsection --}}
