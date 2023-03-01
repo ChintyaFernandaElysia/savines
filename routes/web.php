@@ -7,6 +7,7 @@ use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ChartJSController;
+use App\Http\Controllers\ReportsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -72,4 +73,6 @@ Route::middleware('auth')->group(function () {
 	});
 
 	//Route::resource('incomes', IncomeController::class);
+
+	Route::get('/report', [ReportsController::class, 'index']);
 });
