@@ -91,44 +91,6 @@
                 $("#exampleModal").modal('show');
             });
         }
-
-        function update(id) {
-            console.log('tekan update()')
-            var name = $("#name").val();
-            $.ajax({
-                type : "get",
-                url : "{{url('update')}}/" + id,
-                data : 
-                "title=" + title +
-                "amount=" + amount +
-                "description=" + description,
-
-                success:function(data){
-                    console.log('update data sukses')
-                    $(".btn-close").click();
-                    show();
-                }
-            });
-        }
-
-        function destroy(id) {
-            console.log('tekan delete()')
-            // confirm("Apa yakin untuk hapus data?")
-            $.ajax({
-                type : "get",
-                url : "{{url('incomes/destroy')}}/" + id,
-                data : 
-                "title=" + title +
-                "amount=" + amount +
-                "description=" + description,
-
-                success:function(data){
-                    console.log('delete data sukses')
-                    $(".btn-close").click();
-                    read();
-                }
-            });
-        }
     </script>
 @endsection
   
