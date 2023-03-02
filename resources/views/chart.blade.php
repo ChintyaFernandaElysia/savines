@@ -1,32 +1,49 @@
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
-        ]);
-
-        var options = {
-          title: 'My Daily Activities'
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-        chart.draw(data, options);
-      }
-    </script>
+    <title>Laravel 9 Google Line Graph Chart - Tutsmake.com</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   </head>
   <body>
-    <div id="piechart" style="width: 900px; height: 500px;"></div>
-  </body>
-</html>
+ 
+    <div class="container p-5">
+        <h5>Laravel 9 Google Line Chart | Tutsmake.com</h5>
+        <a href="{{ url('/chart') }}"></a>
+        <div id="chart" style="width: 900px; height: 500px"></div>
+ 
+    </div>
+    
+    <script src = "https://code.highcharts.com/highcharts.js"></script>
+    <script type = "text/javascript">
+  var incomes = <?php echo json_encode($amount)?>;
+  var month = <?php echo json_encode($month)?>;
+  Highchart.chart('chart', {
+    title:{
+      text: 'Incomes (Monthly)'
+    },
+    xAxis:{
+      categories: month
+    }
+    yAxis:{
+      title:{
+        text: 'Monthly Incomes'
+      }
+    },
+    plotOptions:{
+      series:{
+        allowPointSelect: true
+      }
+    },
+    series: [
+    {
+      name: "Incomes Amount",
+      data: incomes
+    }
+    ]
+  });
+</sc>
+      
+</body>
+</html> 

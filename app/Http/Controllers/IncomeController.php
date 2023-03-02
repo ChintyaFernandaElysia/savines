@@ -2,23 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Income;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\DB;
 
 class IncomeController extends Controller
 {
 	public function index()
     {
-        $data = Income::all();
+        // $data = Income::all()->latest('id');
 
-        $incomes = Income::oldest()->paginate(5);
+        $data = DB::table('tbincomes')->latest('id');
+
+        dd($data);
+
+        $income = Income::latest()->paginate(5);
 
         $date = Carbon::now()->format('Y-m-d');
 
-        return view('incomes.index',compact('incomes', 'date'),[
+        return view('incomes.index',compact('date', 'income'),[
             'title' => 'Income',
-            'data' => $data
+            'data' => $data,
         ])->with('i', (request()->input('page', 1) - 1) * 5);
     }
 

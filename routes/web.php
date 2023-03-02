@@ -35,7 +35,8 @@ Route::get('/', function () {
 	return view('welcome');
 });
 
-Route::get('/chart', [ChartJSController::class, 'chart']);
+
+Route::get('/chart', [ChartJSController::class, 'index'])->name('chart');
 
 Route::middleware('auth')->group(function () {
 	Route::get('dashboard', [DashboardController::class, 'index'])

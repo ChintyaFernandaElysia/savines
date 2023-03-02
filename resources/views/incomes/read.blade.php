@@ -13,13 +13,13 @@
             <th style="width:52%">Description</th>
             <th style="width:8%">Action</th>
         </tr>
-        @foreach ($incomes as $income)
+        @foreach ($data as $data)
         <tr>
-            <td>{{ $income->id }}</td>
+            <td>{{ $data->id }}</td>
             <td>{{ $date }}</td>
-            <td>{{ $income->title }}</td>
-            <td>{{ $income->amount }}</td>
-            <td>{{ $income->description }}</td>
+            <td>{{ $data->title }}</td>
+            <td>{{ $data->amount }}</td>
+            <td>{{ $data->description }}</td>
             <td>
                 <button class="btn" onClick="show({{ $income->id }})"> 
                     <svg width="42" height="36" viewBox="0 0 42 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,6 +35,5 @@
         @endforeach
     </table>
     
-    {!! $incomes->links() !!}
 
 </div>
