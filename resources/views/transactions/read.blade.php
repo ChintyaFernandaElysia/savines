@@ -1,7 +1,7 @@
 <div class="row mx-2" style="background-color: white">
     <div class="d-flex justify-content-between">
         <div class="margin-tb">
-            Income
+            Transaction
         </div>
         <div class="margin-tb">
             <div class="pull-right">
@@ -20,7 +20,7 @@
             <th style="width:52%">Description</th>
             <th style="width:8%">Action</th>
         </tr>
-        @foreach ($incomes as $data)
+        @foreach ($transactions as $data)
         <tr>
             <td>{{ $data->id }}</td>
             <td>{{ $data->created_at }}</td>
@@ -42,7 +42,7 @@
         @endforeach
     </table>
 
-{!! $incomes->links() !!}
+{!! $transactions->links() !!}
     
 
 </div>

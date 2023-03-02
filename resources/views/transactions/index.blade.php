@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Income')
+@section('title', 'Transaction')
 
 @section('contents')
 {{-- @extends('incomes.layout') --}}
@@ -20,7 +20,7 @@
     <div class="row mx-2" style="background-color: white">
         <div class="d-flex justify-content-between">
             <div class="margin-tb">
-                Income
+                Transaction
             </div>
             <div class="margin-tb">
                 <div class="pull-right">
@@ -39,7 +39,7 @@
                 <th style="width:52%">Description</th>
                 <th style="width:8%">Action</th>
             </tr>
-            @foreach ($incomes as $data)
+            @foreach ($transactions as $data)
             <tr>
                 <td>{{ $data->id }}</td>
                 <td>{{ $data->created_at }}</td>
@@ -61,7 +61,7 @@
             @endforeach
         </table>
     
-    {!! $incomes->links() !!}
+    {!! $transactions->links() !!}
         
     
     </div>
@@ -92,7 +92,7 @@
         // show database
         function read() {
             console.log('tekan read()')
-            $.get("{{url('incomes/read')}}", {}, function(data, status){
+            $.get("{{url('transactions/read')}}", {}, function(data, status){
                 $("#read").html(data);
             });
 
@@ -100,7 +100,7 @@
 
         function create() {
             console.log('tekan create()')
-            $.get("{{url('incomes/create')}}", {}, function(data, status){
+            $.get("{{url('transactions/create')}}", {}, function(data, status){
                 $("#exampleModalLabel").html('Create Product')
                 $("#page").html(data);
                 $("#exampleModal").modal('show');
@@ -123,7 +123,7 @@
 
         function show(id) {
             console.log('tekan show()')
-            $.get("{{url('incomes')}}/" + id, {}, function(data, status){
+            $.get("{{url('transactions')}}/" + id, {}, function(data, status){
                 $("#exampleModalLabel").html('Edit Product')
                 $("#page").html(data);
                 $("#exampleModal").modal('show');

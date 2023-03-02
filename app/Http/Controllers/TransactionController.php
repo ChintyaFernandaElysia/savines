@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use App\Models\Income;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 
-class IncomeController extends Controller
+class TransactionController extends Controller
 {
 	public function index()
     {
@@ -26,20 +26,20 @@ class IncomeController extends Controller
         //     'title' => 'Income',
         // ]);
 
-        $incomes = Income::latest()->paginate(5);
+        $transactions = Transaction::latest()->paginate(5);
 
         $date = Carbon::now()->format('Y-m-d');
 
-        return view('incomes.index',compact('incomes', 'date'),[
-            'title' => 'Income',
+        return view('transactions',compact('transactions', 'date'),[
+            'title' => 'Transaction',
         ])->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function create()
     {
         $date = Carbon::now()->format('Y-m-d');
-        return view('incomes.create', compact('date'),[
-            'title' => 'Income'
+        return view('transactions.create', compact('date'),[
+            'title' => 'Transaction'
         ]);
     }
   
@@ -51,32 +51,30 @@ class IncomeController extends Controller
             'description' => 'required',
         ]);
       
-        Income::create($request->all());
+        Transaction::create($request->all());
        
-        return redirect()->route('incomes')
-                        ->with('success','Income created successfully.');
+        return redirect()->route('transactions')
+                        ->with('success','Transaction created successfully.');
     }
   
-    public function read(Income $income)
+    public function read(Transaction $transaction)
     {
-        $incomes = Income::latest()->paginate(5);
+        $transactions = Transaction::latest()->paginate(5);
 
         $date = Carbon::now()->format('Y-m-d');
 
-        return view('incomes.read',compact('incomes', 'date'),[
-            'title' => 'Income',
+        return view('transactions.read',compact('transactions', 'date'),[
+            'title' => 'Transaction',
         ])->with('i', (request()->input('page', 1) - 1) * 5);
-
-        // return view('incomes',compact('income'));
     }
 
     public function details($id)
     {
-        $data = Income::findOrFail($id);
+        $data = Transaction::findOrFail($id);
         $date = Carbon::now()->format('Y-m-d');
-        return view('incomes.details', compact('date'),[
+        return view('transactions.details', compact('date'),[
             'data' => $data,
-            'title' => 'Income'
+            'title' => 'Transaction'
         ]);
     }
   
@@ -90,7 +88,7 @@ class IncomeController extends Controller
       
         // $income->update($request->all());
 
-        $data = Income::findOrFail($request->id);
+        $data = Transaction::findOrFail($request->id);
 
         $data->title = $request->title;
         $data->amount = $request->amount;
@@ -99,18 +97,18 @@ class IncomeController extends Controller
         // dd($data);
         $data->save();
       
-        return redirect()->route('incomes')
-                        ->with('success','Income updated successfully');
+        return redirect()->route('transactions')
+                        ->with('success','Transaction updated successfully');
     }
 
     public function destroy($id)
     {
-        $data = Income::findOrFail($id);
+        $data = Transaction::findOrFail($id);
         // dd($data);
         
         $data->delete();
 
-        return redirect()->route('incomes')
-                        ->with('success','Income deleted successfully');
+        return redirect()->route('transactions')
+                        ->with('success','Transaction deleted successfully');
     }
 }

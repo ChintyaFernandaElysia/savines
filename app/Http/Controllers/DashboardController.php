@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Income;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -10,7 +10,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $users = Income::select(DB::raw("SUM(amount) as count"), DB::raw("MONTHNAME(created_at) as month_name"))
+        $users = Transaction::select(DB::raw("SUM(amount) as count"), DB::raw("MONTHNAME(created_at) as month_name"))
         ->whereYear('created_at', date('Y'))
         ->groupBy(DB::raw("month_name"))
         ->orderBy('id','ASC')

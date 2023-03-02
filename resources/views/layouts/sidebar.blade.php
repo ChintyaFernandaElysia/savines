@@ -25,9 +25,9 @@
   </li> --}}
 
   <li class="nav-item">
-    <a class="nav-link" href="{{ route('incomes') }}">
+    <a class="nav-link" href="{{ route('transactions') }}">
       <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>Incomes</span></a>
+      <span>Transactions</span></a>
   </li>
 
   {{-- <li class="nav-item">

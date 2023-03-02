@@ -4,10 +4,10 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Add New Income</h2>
+            <h2>Add New Transaction</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('incomes') }}"> Back</a>
+            <a class="btn btn-primary" href="{{ route('transactions') }}"> Back</a>
         </div>
     </div>
 </div>
@@ -23,7 +23,7 @@
     </div>
 @endif
    
-<form action="{{ route('incomes.store') }}" method="POST">
+<form action="{{ route('transactions.store') }}" method="POST">
     @csrf
   
     <input type="text" name="user_id" id="user_id" value="{{ auth()->user()->id }}" hidden/>

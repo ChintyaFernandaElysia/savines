@@ -4,10 +4,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Income Detail</h2>
+                <h2>Transaction Detail</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('incomes') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('transactions') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -22,7 +22,7 @@
     </div>
 @endif
 
-<form action="{{ route('incomes.update',$data->id) }}" method="POST">
+<form action="{{ route('transactions.update',$data->id) }}" method="POST">
     @csrf
 
      <div class="row">
@@ -82,7 +82,7 @@
     <div class="row">
         <button class="btn btn-success mt-2" onClick="update({{ $data->id }})"> Update </button>
         
-        <a class="btn btn-danger" href="/incomes/destroy/{{ $data->id }}">Delete</a>
+        <a class="btn btn-danger" href="/transactions/destroy/{{ $data->id }}">Delete</a>
     </div>
 </form>
 {{-- @endsection --}}

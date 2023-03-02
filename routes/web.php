@@ -3,7 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\KategoriController;
-use App\Http\Controllers\IncomeController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ChartJSController;
@@ -63,17 +63,16 @@ Route::middleware('auth')->group(function () {
 	// 	Route::get('hapus/{id}', 'hapus')->name('kategori.hapus');
 	// });
 
-	Route::controller(IncomeController::class)->prefix('incomes')->group(function () {
-		Route::get('', 'index')->name('incomes');
-		Route::get('read', 'read')->name('incomes.read');
-		Route::get('create', 'create')->name('incomes.create');
-		Route::post('store', 'store')->name('incomes.store');
-		Route::get('{id}', 'details')->name('incomes.details');
-		Route::post('update/{id}', 'update')->name('incomes.update');
-		Route::get('destroy/{id}', 'destroy')->name('incomes.destroy');
+	Route::controller(TransactionController::class)->prefix('transactions')->group(function () {
+		Route::get('', 'transactions')->name('transactions');
+		Route::get('read', 'read')->name('transactions.read');
+		Route::get('create', 'create')->name('transactions.create');
+		Route::post('store', 'store')->name('transactions.store');
+		Route::get('{id}', 'details')->name('transactions.details');
+		Route::post('update/{id}', 'update')->name('transactions.update');
+		Route::get('destroy/{id}', 'destroy')->name('transactions.destroy');
 	});
 
-	//Route::resource('incomes', IncomeController::class);
 
 	Route::get('/report', [ReportsController::class, 'index']);
 });
