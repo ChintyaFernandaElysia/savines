@@ -14,17 +14,24 @@ class IncomeController extends Controller
     {
         // $data = Income::all()->latest('id');
 
-        $data = DB::table('tbincomes')->latest('id');
+        // $data = DB::table('tbincomes')->latest('id');
 
-        dd($data);
+        
+        // $income = Income::latest()->paginate(5);
+        
+        // // dd($income);
+        // $date = Carbon::now()->format('Y-m-d');
 
-        $income = Income::latest()->paginate(5);
+        // return view('incomes.index',[
+        //     'title' => 'Income',
+        // ]);
+
+        $incomes = Income::latest()->paginate(5);
 
         $date = Carbon::now()->format('Y-m-d');
 
-        return view('incomes.index',compact('date', 'income'),[
+        return view('incomes.index',compact('incomes', 'date'),[
             'title' => 'Income',
-            'data' => $data,
         ])->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -52,21 +59,16 @@ class IncomeController extends Controller
   
     public function read(Income $income)
     {
-        $incomes = Income::oldest()->paginate(5);
+        $incomes = Income::latest()->paginate(5);
 
         $date = Carbon::now()->format('Y-m-d');
 
         return view('incomes.read',compact('incomes', 'date'),[
-            'title' => 'Income'
+            'title' => 'Income',
         ])->with('i', (request()->input('page', 1) - 1) * 5);
 
         // return view('incomes',compact('income'));
     }
-  
-    // public function edit(Income $income)
-    // {
-    //     return view('incomes.edit',compact('income'));
-    // }
 
     public function details($id)
     {
