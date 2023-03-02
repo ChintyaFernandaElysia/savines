@@ -1,7 +1,14 @@
-<div class="" style="background-color: white">
-
-    <div class="row">
-        Income
+<div class="row mx-2" style="background-color: white">
+    <div class="d-flex justify-content-between">
+        <div class="margin-tb">
+            Income
+        </div>
+        <div class="margin-tb">
+            <div class="pull-right">
+                {{-- <a class="btn btn-success" href="{{ route('incomes.create') }}">+ Add Data</a> --}}
+                <button class="btn btn-success" onCLick="create()">+ Add Data</button>
+            </div>
+        </div>
     </div>
 
     <table class="table table-bordered" style="width:100%">

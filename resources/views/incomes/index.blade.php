@@ -5,15 +5,6 @@
 @section('contents')
 {{-- @extends('incomes.layout') --}}
 
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-  
-            <div class="pull-right">
-                {{-- <a class="btn btn-success" href="{{ route('incomes.create') }}">+ Add Data</a> --}}
-                <button class="btn btn-success" onCLick="create()">+ Add Data</button>
-            </div>
-        </div>
-    </div>
 
 
     @if ($message = Session::get('success'))

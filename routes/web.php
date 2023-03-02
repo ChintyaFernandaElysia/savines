@@ -31,15 +31,15 @@ Route::controller(AuthController::class)->group(function () {
 	Route::get('logout', 'logout')->middleware('auth')->name('logout');
 });
 
-Route::get('/', function () {
-	return view('welcome');
-});
+// Route::get('/', function () {
+// 	return view('welcome');
+// });
 
 
 Route::get('/chart', [ChartJSController::class, 'index'])->name('chart');
 
 Route::middleware('auth')->group(function () {
-	Route::get('dashboard', [DashboardController::class, 'index'])
+	Route::get('/', [DashboardController::class, 'index'])
 	->name('dashboard');
 
     // Route::get('/product', [ProductController::class, 'index']);
