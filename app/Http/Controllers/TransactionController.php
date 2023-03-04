@@ -29,7 +29,7 @@ class TransactionController extends Controller
 
 
 
-        $transactions = Transaction::latest()->paginate(5);
+        $transactions = Transaction::latest()->simplePaginate(5);
 
         $date = Carbon::now()->format('Y-m-d');
 
