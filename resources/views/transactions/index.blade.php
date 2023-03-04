@@ -39,9 +39,10 @@
                 <th style="width:12%">Amount</th>
                 <th style="width:8%">Action</th>
             </tr>
+            @php($no = 1)
             @foreach ($transactions as $data)
             <tr>
-                <td>{{ $data->id }}</td>
+                <td>{{ $no++ }}</td>
                 <td>{{ $data->created_at }}</td>
                 <td>{{ $data->title }}</td>
                 <td>{{ $data->status }}</td>
