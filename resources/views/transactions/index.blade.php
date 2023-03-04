@@ -33,10 +33,10 @@
         <table class="table table-bordered" style="width:100%">
             <tr>
                 <th style="width:5%">No</th>
-                <th style="width:11%">Date</th>
+                <th style="width:10%">Date</th>
                 <th style="width:15%">Title</th>
-                <th style="width:11%">Amount</th>
-                <th style="width:52%">Description</th>
+                <th style="width:5%">Status</th>
+                <th style="width:12%">Amount</th>
                 <th style="width:8%">Action</th>
             </tr>
             @foreach ($transactions as $data)
@@ -44,8 +44,8 @@
                 <td>{{ $data->id }}</td>
                 <td>{{ $data->created_at }}</td>
                 <td>{{ $data->title }}</td>
+                <td>{{ $data->status }}</td>
                 <td>{{ $data->amount }}</td>
-                <td>{{ $data->description }}</td>
                 <td>
                     <button class="btn" onClick="show({{ $data->id }})"> 
                         <svg width="42" height="36" viewBox="0 0 42 36" fill="none" xmlns="http://www.w3.org/2000/svg">

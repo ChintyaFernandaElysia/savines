@@ -6,12 +6,12 @@
         <div class="pull-left">
             <h2>Add New Transaction</h2>
         </div>
-        <div class="pull-right">
+        {{-- <div class="pull-right">
             <a class="btn btn-primary" href="{{ route('transactions') }}"> Back</a>
-        </div>
+        </div> --}}
     </div>
 </div>
-   
+
 @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -32,19 +32,31 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Date:</strong>
-                <textarea class="form-control" style="height:150px" name="date" placeholder={{ $date }}></textarea>
+                <input class="form-control" style="height:40px" name="date" placeholder={{ $date }}>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Title:</strong>
-                <textarea class="form-control" style="height:150px" name="title" placeholder="Title"></textarea>
+                <input class="form-control" style="height:40px" name="title" placeholder="Title">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Status:</strong>
+                <br>
+                {{-- <input class="form-control" style="height:40px" name="status" placeholder="Status"> --}}
+                <select class="block w-100 pt-2 pb-2 pl-2 mt-1" name="status">
+                    <option selected>Select Status</option>
+                    <option value="Income">Income</option>
+                    <option value="Expense">Expense</option>
+                </select>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Amount:</strong>
-                <textarea class="form-control" style="height:150px" name="amount" placeholder="Amount"></textarea>
+                <input class="form-control" style="height:40px" name="amount" placeholder="Amount">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

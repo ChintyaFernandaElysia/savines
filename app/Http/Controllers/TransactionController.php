@@ -26,11 +26,14 @@ class TransactionController extends Controller
         //     'title' => 'Income',
         // ]);
 
+
+
+
         $transactions = Transaction::latest()->paginate(5);
 
         $date = Carbon::now()->format('Y-m-d');
 
-        return view('transactions',compact('transactions', 'date'),[
+        return view('transactions.index',compact('transactions', 'date'),[
             'title' => 'Transaction',
         ])->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -111,4 +114,6 @@ class TransactionController extends Controller
         return redirect()->route('transactions')
                         ->with('success','Transaction deleted successfully');
     }
+
+
 }

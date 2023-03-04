@@ -36,5 +36,9 @@ class DatabaseSeeder extends Seeder
                 'password' => '123',
             ]
         ]);
+
+        // $this->call([
+        //     TransactionSeeder::class,
+        // ]);
     }
 }

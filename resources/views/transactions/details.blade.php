@@ -6,14 +6,14 @@
             <div class="pull-left">
                 <h2>Transaction Detail</h2>
             </div>
-            <div class="pull-right">
+            {{-- <div class="pull-right">
                 <a class="btn btn-primary" href="{{ route('transactions') }}"> Back</a>
-            </div>
+            </div> --}}
         </div>
     </div>
     @if ($errors->any())
     <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <strong>Whoops!</strong> There were some problems with your textarea.<br><br>
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
@@ -29,19 +29,41 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Date:</strong>
-                <textarea class="form-control" style="height:150px" name="date" placeholder="Date">{{ $data->date }}</textarea>
+                <textarea class="form-control" style="height:40px" name="date" placeholder="Date">{{ $date }}</textarea>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Title:</strong>
-                <textarea class="form-control" style="height:150px" name="title" placeholder="Title">{{ $data->title }}</textarea>
+                <textarea class="form-control" style="height:40px" name="title" placeholder="Title">{{ $data->title }}</textarea>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
+                <strong>Status:</strong>
+                <br>
+                {{-- <textarea class="form-control" style="height:40px" name="status" placeholder="Status"> --}}
+                <select class="block w-100 pt-2 pb-2 pl-2 mt-1" name="status">
+                    <option value>{{ $data->status }}</option>
+                    <option value="Income">Income</option>
+                    <option value="Expense">Expense</option>
+                </select>
+            </div>
+        </div>
+        {{-- <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
                 <strong>Amount:</strong>
-                <textarea class="form-control" style="height:150px" name="amount" placeholder="Amount">{{ $data->amount }}</textarea>
+                @if($data->status == 'Income')
+                    <textarea class="form-control" style="height:40px" name="amount" placeholder="+{{ $data->amount }}"></textarea>
+                @else
+                    <textarea class="form-control" style="height:40px" name="amount" placeholder="-{{ $data->amount }}"></textarea>
+                @endif
+            </div>
+        </div> --}}
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Amount:</strong>
+                <textarea class="form-control" style="height:40px" name="amount" placeholder="Amount">{{ $data->amount }}</textarea>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

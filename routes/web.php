@@ -64,7 +64,7 @@ Route::middleware('auth')->group(function () {
 	// });
 
 	Route::controller(TransactionController::class)->prefix('transactions')->group(function () {
-		Route::get('', 'transactions')->name('transactions');
+		Route::get('', 'index')->name('transactions');
 		Route::get('read', 'read')->name('transactions.read');
 		Route::get('create', 'create')->name('transactions.create');
 		Route::post('store', 'store')->name('transactions.store');
