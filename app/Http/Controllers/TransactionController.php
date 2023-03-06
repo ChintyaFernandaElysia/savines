@@ -64,6 +64,8 @@ class TransactionController extends Controller
     {
         $transactions = Transaction::latest()->paginate(5);
 
+        dd($transactions);
+
         $date = Carbon::now()->format('Y-m-d');
 
         return view('transactions.read',compact('transactions', 'date'),[
@@ -97,7 +99,6 @@ class TransactionController extends Controller
         $data->amount = $request->amount;
         $data->description = $request->description;
         
-        // dd($data);
         $data->save();
       
         return redirect()->route('transactions')

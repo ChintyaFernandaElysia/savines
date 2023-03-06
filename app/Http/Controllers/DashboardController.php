@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {
@@ -19,8 +20,14 @@ class DashboardController extends Controller
         $labels = $users->keys();
         $data = $users->values();
 
+        $income = Transaction::get()->where('status', 'Income')->sum('amount');
 
-        return view('dashboard', compact('labels', 'data'), ['title' => 'Dashboard']);
+        $expense = Transaction::get()->where('status', 'Expense')->sum('amount');
+
+        $savings = $income - $expense;
+        
+
+        return view('dashboard', compact('labels', 'data', 'income', 'expense', 'savings'), ['title' => 'Dashboard']);
 
         // $amount = Income::select(DB::raw("CAST(SUM(amount) as int) as amount"))
         // ->GroupBy(DB::raw("Month(created_at)"))
