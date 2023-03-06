@@ -21,11 +21,11 @@
     
         <table class="table table-bordered" style="width:100%">
             <tr>
-            <th style="width:5%">No</th>
-            <th style="width:10%">Date</th>
-            <th style="width:15%">Title</th>
-            <th style="width:25%">Description</th>
-            <th style="width:5%">Action</th>
+                <th style="width:5%">No</th>
+                <th style="width:10%">Date</th>
+                <th style="width:15%">Title</th>
+                <th style="width:25%">Description</th>
+                <th style="width:5%">Action</th>
             </tr>
             @php($no = 1)
             @foreach ($notes as $data)
