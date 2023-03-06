@@ -50,7 +50,7 @@
                 </select>
             </div>
         </div>
-        {{-- <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Amount:</strong>
                 @if($data->status == 'Income')
@@ -59,7 +59,7 @@
                     <textarea class="form-control" style="height:40px" name="amount" placeholder="-{{ $data->amount }}"></textarea>
                 @endif
             </div>
-        </div> --}}
+        </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Amount:</strong>

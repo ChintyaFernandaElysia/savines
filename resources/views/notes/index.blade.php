@@ -1,28 +1,19 @@
 @extends('layouts.app')
 
 @section('contents')
-{{-- @extends('incomes.layout') --}}
-
-
-
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
         </div>
     @endif
 
-    {{-- <div id="read" class="mt-3">
-
-    </div> --}}
-
     <div class="row mx-2" style="background-color: white">
         <div class="d-flex justify-content-between">
             <div class="margin-tb">
-                Transaction
+                Note
             </div>
             <div class="margin-tb">
                 <div class="pull-right">
-                    {{-- <a class="btn btn-success" href="{{ route('incomes.create') }}">+ Add Data</a> --}}
                     <button class="btn btn-success" onCLick="create()">+ Add Data</button>
                 </div>
             </div>
@@ -30,21 +21,19 @@
     
         <table class="table table-bordered" style="width:100%">
             <tr>
-                <th style="width:5%">No</th>
-                <th style="width:10%">Date</th>
-                <th style="width:20%">Title</th>
-                <th style="width:15%">Status</th>
-                <th style="width:15%">Amount</th>
-                <th style="width:8%">Action</th>
+            <th style="width:5%">No</th>
+            <th style="width:10%">Date</th>
+            <th style="width:15%">Title</th>
+            <th style="width:25%">Description</th>
+            <th style="width:5%">Action</th>
             </tr>
             @php($no = 1)
-            @foreach ($transactions as $data)
+            @foreach ($notes as $data)
             <tr>
                 <td>{{ $no++ }}</td>
                 <td>{{ $data->created_at }}</td>
                 <td>{{ $data->title }}</td>
-                <td>{{ $data->status }}</td>
-                <td>{{ $data->amount }}</td>
+                <td>{{ $data->description }}</td>
                 <td>
                     <button class="btn" onClick="show({{ $data->id }})"> 
                         <svg width="42" height="36" viewBox="0 0 42 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -59,7 +48,7 @@
             </tr>
             @endforeach
         </table>
-    {!! $transactions->links() !!}
+    {!! $notes->links() !!}
     </div>
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -87,7 +76,7 @@
         // show database
         function read() {
             console.log('tekan read()')
-            $.get("{{url('transactions/read')}}", {}, function(data, status){
+            $.get("{{url('notes/read')}}", {}, function(data, status){
                 $("#read").html(data);
             });
 
@@ -95,7 +84,7 @@
 
         function create() {
             console.log('tekan create()')
-            $.get("{{url('transactions/create')}}", {}, function(data, status){
+            $.get("{{url('notes/create')}}", {}, function(data, status){
                 $("#exampleModalLabel").html('Create Product')
                 $("#page").html(data);
                 $("#exampleModal").modal('show');
@@ -118,7 +107,7 @@
 
         function show(id) {
             console.log('tekan show()')
-            $.get("{{url('transactions')}}/" + id, {}, function(data, status){
+            $.get("{{url('notes')}}/" + id, {}, function(data, status){
                 $("#exampleModalLabel").html('Edit Product')
                 $("#page").html(data);
                 $("#exampleModal").modal('show');

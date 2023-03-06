@@ -4,10 +4,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\TransactionController;
-use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\NoteController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ChartJSController;
-use App\Http\Controllers\ReportsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -73,6 +72,15 @@ Route::middleware('auth')->group(function () {
 		Route::get('destroy/{id}', 'destroy')->name('transactions.destroy');
 	});
 
+	Route::controller(NoteController::class)->prefix('notes')->group(function () {
+		Route::get('', 'index')->name('notes');
+		Route::get('read', 'read')->name('notes.read');
+		Route::get('create', 'create')->name('notes.create');
+		Route::post('store', 'store')->name('notes.store');
+		Route::get('{id}', 'details')->name('notes.details');
+		Route::post('update/{id}', 'update')->name('notes.update');
+		Route::get('destroy/{id}', 'destroy')->name('notes.destroy');
+	});
 
-	Route::get('/report', [ReportsController::class, 'index']);
+
 });

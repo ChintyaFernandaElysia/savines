@@ -29,6 +29,11 @@
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span>Transactions</span></a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('notes') }}">
+      <i class="fas fa-fw fa-tachometer-alt"></i>
+      <span>Notes</span></a>
+  </li>
 
   {{-- <li class="nav-item">
     <a class="nav-link" href="{{ route('expenses') }}">
