@@ -19,7 +19,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('title');
             $table->string('status');
-			$table->string('amount');
+			$table->integer('amount');
 			$table->string('description');
         });
 
@@ -30,7 +30,7 @@ return new class extends Migration
             $table->date('due_date');
             $table->string('debtor');
 			$table->string('description');
-			$table->string('amount');
+			$table->integer('amount');
 			$table->integer('total_paid');
         });
 
@@ -42,7 +42,7 @@ return new class extends Migration
             $table->integer('idcardnumber');
             $table->string('gender');
             $table->string('birthday');
-            $table->integer('phone_no');
+            $table->string('phone_no');
             $table->string('address');
         });
 
@@ -58,7 +58,7 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id');
             $table->timestamps();
-			$table->string('amount');
+			$table->integer('amount');
         });
         Schema::create('tbgoals', function (Blueprint $table) {
             $table->id();
@@ -66,7 +66,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('title');
 			$table->string('description');
-			$table->string('amount');
+			$table->integer('amount');
         });
         
     }
