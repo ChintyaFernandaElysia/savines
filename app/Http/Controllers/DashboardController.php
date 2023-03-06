@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Transaction;
+use App\Models\Note;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -25,9 +26,16 @@ class DashboardController extends Controller
         $expense = Transaction::get()->where('status', 'Expense')->sum('amount');
 
         $savings = $income - $expense;
-        
 
-        return view('dashboard', compact('labels', 'data', 'income', 'expense', 'savings'), ['title' => 'Dashboard']);
+        $latestExpense = Transaction::where('status', 'Expense')->latest()->first();
+
+        $notes = Note::latest()->first();
+        
+        $incomeThisMonth = Transaction::where('status','Income')->whereMonth('created_at', date('m'))->sum('amount');
+        
+        $expenseThisMonth = Transaction::where('status','Expense')->whereMonth('created_at', date('m'))->sum('amount');
+
+        return view('dashboard', compact('labels', 'data', 'income', 'expense', 'savings','notes','incomeThisMonth','expenseThisMonth','latestExpense'), ['title' => 'Dashboard']);
 
         // $amount = Income::select(DB::raw("CAST(SUM(amount) as int) as amount"))
         // ->GroupBy(DB::raw("Month(created_at)"))

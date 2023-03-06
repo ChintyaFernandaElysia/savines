@@ -29,7 +29,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Date:</strong>
-                <textarea class="form-control" style="height:40px" name="date" placeholder="Date">{{ $date }}</textarea>
+                <input type="date" class="form-control" style="height:40px" name="date" placeholder="Date">{{ $data->date }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -44,20 +44,19 @@
                 <br>
                 {{-- <textarea class="form-control" style="height:40px" name="status" placeholder="Status"> --}}
                 <select class="block w-100 pt-2 pb-2 pl-2 mt-1" name="status">
-                    <option value>{{ $data->status }}</option>
-                    <option value="Income">Income</option>
-                    <option value="Expense">Expense</option>
+                    @if($data->status == "Expense")
+                        <option selected value="Income">Expense</option>
+                    @else
+                        <option value="Expense">Expense</option>
+                    @endif
+
+                    @if($data->status == "Income")
+                        <option selected value="Income">Income</option>
+                    @else
+                        <option value="Income">Income</option>
+                    @endif
+
                 </select>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Amount:</strong>
-                @if($data->status == 'Income')
-                    <textarea class="form-control" style="height:40px" name="amount" placeholder="+{{ $data->amount }}"></textarea>
-                @else
-                    <textarea class="form-control" style="height:40px" name="amount" placeholder="-{{ $data->amount }}"></textarea>
-                @endif
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

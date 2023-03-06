@@ -12,63 +12,54 @@ class TransactionController extends Controller
 {
 	public function index()
     {
-        // $data = Income::all()->latest('id');
-
-        // $data = DB::table('tbincomes')->latest('id');
-
-        
-        // $income = Income::latest()->paginate(5);
-        
-        // // dd($income);
-        // $date = Carbon::now()->format('Y-m-d');
-
-        // return view('incomes.index',[
-        //     'title' => 'Income',
-        // ]);
-
-
-
 
         $transactions = Transaction::latest()->simplePaginate(5);
 
-        $date = Carbon::now()->format('Y-m-d');
+        // $income = Transaction::select('tbtransactions')->sum('amount')->groupBy('status')->get();
+        $income = Transaction::where('status', 'Income')->sum('amount');
 
-        return view('transactions.index',compact('transactions', 'date'),[
+        $expense = Transaction::where('status', 'Expense')->sum('amount');
+
+        
+
+
+
+        return view('transactions.index',compact('transactions','income',),[
             'title' => 'Transaction',
         ])->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function create()
     {
-        $date = Carbon::now()->format('Y-m-d');
-        return view('transactions.create', compact('date'),[
+        return view('transactions.create',[
             'title' => 'Transaction'
         ]);
     }
-  
+
     public function store(Request $request)
     {
         $request->validate([
+
+            'date' => 'required',
             'title' => 'required',
             'amount' => 'required',
             'description' => 'required',
         ]);
-      
+
         Transaction::create($request->all());
-       
+
         return redirect()->route('transactions')
                         ->with('success','Transaction created successfully.');
     }
-  
+
     public function read(Transaction $transaction)
     {
         $transactions = Transaction::latest()->paginate(5);
 
         dd($transactions);
 
-        $date = Carbon::now()->format('Y-m-d');
 
-        return view('transactions.read',compact('transactions', 'date'),[
+        return view('transactions.read',compact('transactions'),[
             'title' => 'Transaction',
         ])->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -76,31 +67,24 @@ class TransactionController extends Controller
     public function details($id)
     {
         $data = Transaction::findOrFail($id);
-        $date = Carbon::now()->format('Y-m-d');
-        return view('transactions.details', compact('date'),[
+
+        return view('transactions.details',[
             'data' => $data,
             'title' => 'Transaction'
         ]);
     }
-  
+
     public function update(Request $request)
     {
-        // $request->validate([
-        //     'title' => 'required',
-        //     'amount' => 'required',
-        //     'description' => 'required',
-        // ]);
-      
-        // $income->update($request->all());
-
         $data = Transaction::findOrFail($request->id);
 
         $data->title = $request->title;
+        $data->date = $request->date;
         $data->amount = $request->amount;
         $data->description = $request->description;
         
         $data->save();
-      
+
         return redirect()->route('transactions')
                         ->with('success','Transaction updated successfully');
     }
@@ -108,7 +92,6 @@ class TransactionController extends Controller
     public function destroy($id)
     {
         $data = Transaction::findOrFail($id);
-        // dd($data);
         
         $data->delete();
 

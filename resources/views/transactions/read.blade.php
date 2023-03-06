@@ -23,7 +23,7 @@
         @foreach ($transactions as $data)
         <tr>
             <td>{{ $data->id }}</td>
-            <td>{{ $data->created_at }}</td>
+            <td>{{ $data->date }}</td>
             <td>{{ $data->title }}</td>
             <td>{{ $data->status }}</td>
             <td>{{ $data->amount }}</td>
