@@ -223,8 +223,6 @@
   data: {
     labels: ["Income", "Expense", "Savings"],
     datasets: [{
-      // MASUKAN DATA!!!! test
-      // data: [10000, 2000, 12000],
       data: [ {{ $income }}, {{ $expense }}, {{ $savings }}],
       backgroundColor: ['#44CD9D', '#E36E64', '#EFC967'],
       hoverBackgroundColor: ['#44CD9D', '#E36E64', '#EFC967'],
@@ -252,33 +250,4 @@
   </script>
 
 <script src = "https://code.highcharts.com/highcharts.js"></script>
-
-{{-- <script type = "text/javascript"> 
-  var incomes = <?php echo json_encode($amount)?>;
-  var month = <?php echo json_encode($month)?>;
-  Highchart.chart('chart', {
-    title:{
-      text: 'Incomes (Monthly)'
-    },
-    xAxis:{
-      categories: month
-    }
-    yAxis:{
-      title:{
-        text: 'Monthly Incomes'
-      }
-    },
-    plotOptions:{
-      series:{
-        allowPointSelect: true
-      }
-    },
-    series: [
-    {
-      name: "Incomes Amount",
-      data: incomes
-    }
-    ]
-  });
-  </script> --}}
 @endsection
