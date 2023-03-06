@@ -252,33 +252,4 @@
   </script>
 
 <script src = "https://code.highcharts.com/highcharts.js"></script>
-
-{{-- <script type = "text/javascript"> 
-  var incomes = <?php echo json_encode($amount)?>;
-  var month = <?php echo json_encode($month)?>;
-  Highchart.chart('chart', {
-    title:{
-      text: 'Incomes (Monthly)'
-    },
-    xAxis:{
-      categories: month
-    }
-    yAxis:{
-      title:{
-        text: 'Monthly Incomes'
-      }
-    },
-    plotOptions:{
-      series:{
-        allowPointSelect: true
-      }
-    },
-    series: [
-    {
-      name: "Incomes Amount",
-      data: incomes
-    }
-    ]
-  });
-  </script> --}}
 @endsection
