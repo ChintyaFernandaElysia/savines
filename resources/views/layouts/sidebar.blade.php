@@ -2,8 +2,14 @@
 
   <!-- Sidebar - Brand -->
   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-    <div class="sidebar-brand-icon rotate-n-15">
-      <i class="fas fa-laugh-wink"></i>
+    <div class="sidebar-brand-icon">
+      {{-- <i class="fas fa-laugh-wink"></i> --}}
+      <svg width="25" height="40" viewBox="0 0 25 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12.5" cy="12.5" r="11.5196" fill="#FF9C08" stroke="#FF9C08" stroke-width="1.96078"/>
+        <path d="M22.9411 13.8725C23.5293 7.54908 20.7842 2.00977 12.647 2.00977C4.50972 2.00977 1.29077 9.21555 2.10775 14.1175C3.23779 20.8978 8.84074 23.6076 16.7143 23.8109C17.2556 23.8249 17.6959 24.2612 17.6959 24.8027C17.6959 26.4415 17.6959 29.1206 17.6959 29.4606H5.29402" stroke="white" stroke-width="3.92157"/>
+        <path d="M7.745 37.1572H16.5685" stroke="white" stroke-width="3.92157"/>
+        </svg>
+        
     </div>
     <div class="sidebar-brand-text mx-3">Savines</div>
   </a>
