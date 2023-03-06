@@ -224,8 +224,6 @@
   data: {
     labels: ["Income", "Expense", "Savings"],
     datasets: [{
-      // MASUKAN DATA!!!! test
-      // data: [10000, 2000, 12000],
       data: [ {{ $income }}, {{ $expense }}, {{ $savings }}],
       backgroundColor: ['#44CD9D', '#E36E64', '#EFC967'],
       hoverBackgroundColor: ['#44CD9D', '#E36E64', '#EFC967'],
