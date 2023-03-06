@@ -74,7 +74,7 @@
             <div class="col mr-2">
               <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                 Savings</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">4000000
+              <div class="h5 mb-0 font-weight-bold text-gray-800">Rp{{ $savings }}
               </div>
             </div>
             <div class="col-auto">
@@ -205,11 +205,12 @@
           document.getElementById('myAreaChart'),
           config
       );
+
+
     
   </script>
 
-
-<script type="text/javascript">
+  <script type="text/javascript">
   
   // Set new default font family and font color to mimic Bootstrap's default styling
   Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
@@ -247,8 +248,37 @@
     },
     cutoutPercentage: 80,
   },
-});
-
-  
+  });  
   </script>
+
+<script src = "https://code.highcharts.com/highcharts.js"></script>
+
+{{-- <script type = "text/javascript"> 
+  var incomes = <?php echo json_encode($amount)?>;
+  var month = <?php echo json_encode($month)?>;
+  Highchart.chart('chart', {
+    title:{
+      text: 'Incomes (Monthly)'
+    },
+    xAxis:{
+      categories: month
+    }
+    yAxis:{
+      title:{
+        text: 'Monthly Incomes'
+      }
+    },
+    plotOptions:{
+      series:{
+        allowPointSelect: true
+      }
+    },
+    series: [
+    {
+      name: "Incomes Amount",
+      data: incomes
+    }
+    ]
+  });
+  </script> --}}
 @endsection
