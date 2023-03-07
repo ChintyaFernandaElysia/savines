@@ -12,60 +12,42 @@ class NoteController extends Controller
 {
 	public function index()
     {
-        // $data = Income::all()->latest('id');
-
-        // $data = DB::table('tbincomes')->latest('id');
-
-        
-        // $income = Income::latest()->paginate(5);
-        
-        // // dd($income);
-        // $date = Carbon::now()->format('Y-m-d');
-
-        // return view('incomes.index',[
-        //     'title' => 'Income',
-        // ]);
-
-
-
-
         $notes = Note::latest()->simplePaginate(5);
-
-        $date = Carbon::now()->format('Y-m-d');
-
-        return view('notes.index',compact('notes', 'date'),[
+        return view('notes.index',compact('notes'),[
             'title' => 'Note',
         ])->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function create()
     {
-        $date = Carbon::now()->format('Y-m-d');
-        return view('notes.create', compact('date'),[
+        return view('notes.create',[
             'title' => 'Note'
         ]);
     }
-  
+
     public function store(Request $request)
     {
         $request->validate([
+
+            'date' => 'required',
             'title' => 'required',
             'description' => 'required',
         ]);
-      
+
         Note::create($request->all());
-       
+
         return redirect()->route('notes')
                         ->with('success','Note created successfully.');
     }
-  
-    public function read(Note $note)
+
+    public function read(Note $Note)
     {
         $notes = Note::latest()->paginate(5);
 
-        $date = Carbon::now()->format('Y-m-d');
+        dd($notes);
 
-        return view('notes.read',compact('notes', 'date'),[
+
+        return view('notes.read',compact('notes'),[
             'title' => 'Note',
         ])->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -73,32 +55,23 @@ class NoteController extends Controller
     public function details($id)
     {
         $data = Note::findOrFail($id);
-        $date = Carbon::now()->format('Y-m-d');
-        return view('notes.details', compact('date'),[
+
+        return view('notes.details',[
             'data' => $data,
             'title' => 'Note'
         ]);
     }
-  
+
     public function update(Request $request)
     {
-        // $request->validate([
-        //     'title' => 'required',
-        //     'amount' => 'required',
-        //     'description' => 'required',
-        // ]);
-      
-        // $income->update($request->all());
-
         $data = Note::findOrFail($request->id);
 
+        $data->date = $request->date;
         $data->title = $request->title;
-        $data->amount = $request->amount;
         $data->description = $request->description;
         
-        // dd($data);
         $data->save();
-      
+
         return redirect()->route('notes')
                         ->with('success','Note updated successfully');
     }
@@ -106,7 +79,6 @@ class NoteController extends Controller
     public function destroy($id)
     {
         $data = Note::findOrFail($id);
-        // dd($data);
         
         $data->delete();
 

@@ -74,7 +74,7 @@
             <div class="col mr-2">
               <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                 Savings</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">Rp{{ $savings }}
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $savings }}
               </div>
             </div>
             <div class="col-auto">
@@ -170,8 +170,8 @@
             <div class="col mr-2">
               <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                 Notes (latest)</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $notes }}
-              </div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $notes->title }}</div>
+              <div class="h6 mb-0 text-gray-800">{{ $notes->description }}</div>
             </div>
             <div class="col-auto">
               <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -187,8 +187,9 @@
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
               <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                Income (This Month)</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $incomeThisMonth }}
+                Goals (Latest)</div>
+                {{-- <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $goals->title }}</div>
+                <div class="h6 mb-0 text-gray-800">{{ $goals->description }}</div> --}}
               </div>
             </div>
             <div class="col-auto">

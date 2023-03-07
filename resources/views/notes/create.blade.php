@@ -1,6 +1,3 @@
-{{-- @extends('incomes.layout') --}}
-  
-{{-- @section('content') --}}
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
@@ -19,17 +16,17 @@
         </ul>
     </div>
 @endif
-   
+
 <form action="{{ route('notes.store') }}" method="POST">
     @csrf
-  
+
     <input type="text" name="user_id" id="user_id" value="{{ auth()->user()->id }}" hidden/>
 
-     <div class="row">
+    <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Date:</strong>
-                <input class="form-control" style="height:40px" name="date" placeholder={{ $date }}>
+                <input type="date" class="form-control" style="height:40px" name="date" placeholder="Date">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -48,6 +45,5 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </div>
-   
+
 </form>
-{{-- @endsection --}}
