@@ -15,13 +15,12 @@
 
     </div> --}}
 <div class="card shadow mb-4">
-    <div class="card-header py-3 d-flex flex-row justify-content-between">
+    <div class="card-header py-2 d-flex flex-row justify-content-between">
         <div class="margin-tb d-flex align-items-center">
             <h6 class="m-0 font-weight-bold text-success">Overall</h6>
         </div>
         <div class="margin-tb">
             <div class="pull-right">
-                {{-- <a class="btn btn-success" href="{{ route('incomes.create') }}">+ Add Data</a> --}}
                 <button class="btn btn-success" onCLick="create()">+ Add Data</button>
             </div>
         </div>

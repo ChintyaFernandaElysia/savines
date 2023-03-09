@@ -10,7 +10,7 @@
     @endif
 
 <div class="card shadow mb-4">
-    <div class="card-header py-3 d-flex flex-row justify-content-between">
+    <div class="card-header py-2 d-flex flex-row justify-content-between">
         <div class="margin-tb d-flex align-items-center">
             <h6 class="m-0 font-weight-bold text-primary">Overall</h6>
         </div>
@@ -33,7 +33,7 @@
             @foreach ($notes as $data)
             <tr>
                 <td>{{ $no++ }}</td>
-                <td>{{ $data->date }}</td>
+                <td>{{ $data->created_at }}</td>
                 <td>{{ $data->title }}</td>
                 <td>{{ $data->description }}</td>
                 <td>
