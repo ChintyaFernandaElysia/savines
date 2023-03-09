@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Goals;
-use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -31,61 +30,61 @@ class GoalsController extends Controller
         $request->validate([
             'date' => 'required',
             'title' => 'required',
-            'amount' => 'required',
+            'target' => 'required',
             'description' => 'required',
         ]);
 
-        Transaction::create($request->all());
+        Goals::create($request->all());
 
-        return redirect()->route('transactions')
-                        ->with('success','Transaction created successfully.');
+        return redirect()->route('goals')
+                        ->with('success','Goals created successfully.');
     }
 
-    public function read(Transaction $transaction)
+    public function read(Goals $goals)
     {
-        $transactions = Transaction::latest()->paginate(5);
+        $goals = Goals::latest()->paginate(5);
 
-        dd($transactions);
+        dd($goals);
 
 
-        return view('transactions.read',compact('transactions'),[
-            'title' => 'Transaction',
+        return view('goals.read',compact('goals'),[
+            'title' => 'Goals',
         ])->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function details($id)
     {
-        $data = Transaction::findOrFail($id);
+        $data = Goals::findOrFail($id);
 
-        return view('transactions.details',[
+        return view('goals.details',[
             'data' => $data,
-            'title' => 'Transaction'
+            'title' => 'Goals'
         ]);
     }
 
     public function update(Request $request)
     {
-        $data = Transaction::findOrFail($request->id);
+        $data = Goals::findOrFail($request->id);
 
         $data->title = $request->title;
         $data->date = $request->date;
-        $data->amount = $request->amount;
+        $data->target = $request->target;
         $data->description = $request->description;
         
         $data->save();
 
-        return redirect()->route('transactions')
-                        ->with('success','Transaction updated successfully');
+        return redirect()->route('goals')
+                        ->with('success','Goals updated successfully');
     }
 
     public function destroy($id)
     {
-        $data = Transaction::findOrFail($id);
+        $data = Goals::findOrFail($id);
         
         $data->delete();
 
-        return redirect()->route('transactions')
-                        ->with('success','Transaction deleted successfully');
+        return redirect()->route('goals')
+                        ->with('success','Goals deleted successfully');
     }
 
 

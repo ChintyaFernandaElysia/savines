@@ -83,15 +83,10 @@
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     
     <script>
-        // // Jquery ajax
-        // $(document).ready(function(){
-        //     read()
-        // });
-
         // show database
         function read() {
             console.log('tekan read()')
-            $.get("{{url('transactions/read')}}", {}, function(data, status){
+            $.get("{{url('goals/read')}}", {}, function(data, status){
                 $("#read").html(data);
             });
 
@@ -99,8 +94,8 @@
 
         function create() {
             console.log('tekan create()')
-            $.get("{{url('transactions/create')}}", {}, function(data, status){
-                $("#exampleModalLabel").html('Create Product')
+            $.get("{{url('goals/create')}}", {}, function(data, status){
+                $("#exampleModalLabel").html('Create Goals')
                 $("#page").html(data);
                 $("#exampleModal").modal('show');
             });

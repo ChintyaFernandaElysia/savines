@@ -70,7 +70,6 @@ return new class extends Migration
             $table->string('title');
 			$table->string('description');
 			$table->integer('target');
-			$table->integer('collected');
         });
         
     }
