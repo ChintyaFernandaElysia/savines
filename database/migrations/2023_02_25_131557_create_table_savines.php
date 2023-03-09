@@ -66,9 +66,11 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id');
             $table->timestamps();
+            $table->date('date');
             $table->string('title');
 			$table->string('description');
-			$table->integer('amount');
+			$table->integer('target');
+			$table->integer('collected');
         });
         
     }

@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\TransactionController;
-use App\Http\Controllers\NoteController;
-use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\NoteController;
+use App\Http\Controllers\GoalsController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,5 +56,14 @@ Route::middleware('auth')->group(function () {
 		Route::get('destroy/{id}', 'destroy')->name('notes.destroy');
 	});
 
+	Route::controller(GoalsController::class)->prefix('goals')->group(function () {
+		Route::get('', 'index')->name('goals');
+		Route::get('read', 'read')->name('goals.read');
+		Route::get('create', 'create')->name('goals.create');
+		Route::post('store', 'store')->name('goals.store');
+		Route::get('{id}', 'details')->name('goals.details');
+		Route::post('update/{id}', 'update')->name('goals.update');
+		Route::get('destroy/{id}', 'destroy')->name('goals.destroy');
+	});
 
 });

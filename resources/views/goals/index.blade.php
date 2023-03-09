@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Transactions')
+@section('title', 'Goals')
 
 @section('contents')
 {{-- @extends('incomes.layout') --}}
@@ -29,14 +29,15 @@
         <table class="table table-bordered" style="width:100%">
             <tr>
                 <th style="width:5%">No</th>
-                <th style="width:10%">Date</th>
                 <th style="width:20%">Title</th>
-                <th style="width:15%">Status</th>
+                <th style="width:10%">Date</th>
                 <th style="width:15%">Amount</th>
-                <th style="width:8%">Action</th>
+                <th style="width:15%">Collected</th>
+                <th style="width:15%">Progress Bar</th>
+                <th style="width:8%">Details</th>
             </tr>
             @php($no = 1)
-            @foreach ($transactions as $data)
+            @foreach ($goals as $data)
             <tr>
                 <td>{{ $no++ }}</td>
                 <td>{{ $data->date }}</td>
@@ -57,12 +58,10 @@
             </tr>
             @endforeach
         </table>
-        <div>
-        </div>
     </div>
+    {!! $goals->links() !!}
 </div>
-
-{!! $transactions->links() !!}
+    
 
     </div>
     <!-- Modal -->
