@@ -23,13 +23,13 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Date:</strong>
-                <textarea class="form-control" style="height:40px" name="date" placeholder="Date">{{ $date }}</textarea>
+                <input type="date" class="form-control" style="height:40px" name="date" placeholder="Date">{{ $data->date }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Title:</strong>
-                <textarea class="form-control" style="height:40px" name="title" placeholder="Title">{{ $data->title }}</textarea>
+                <input class="form-control" style="height:40px" name="title" placeholder="Title">{{ $data->title }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

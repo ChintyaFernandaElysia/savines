@@ -33,7 +33,7 @@
             @foreach ($notes as $data)
             <tr>
                 <td>{{ $no++ }}</td>
-                <td>{{ $data->created_at }}</td>
+                <td>{{ $data->date }}</td>
                 <td>{{ $data->title }}</td>
                 <td>{{ $data->description }}</td>
                 <td>
