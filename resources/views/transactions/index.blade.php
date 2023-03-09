@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
+@section('title', 'Transactions')
+
 @section('contents')
 {{-- @extends('incomes.layout') --}}
-
-
 
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
@@ -14,20 +14,19 @@
     {{-- <div id="read" class="mt-3">
 
     </div> --}}
-
-    <div class="row mx-2" style="background-color: white">
-        <div class="d-flex justify-content-between">
-            <div class="margin-tb">
-                Transaction
-            </div>
-            <div class="margin-tb">
-                <div class="pull-right">
-                    {{-- <a class="btn btn-success" href="{{ route('incomes.create') }}">+ Add Data</a> --}}
-                    <button class="btn btn-success" onCLick="create()">+ Add Data</button>
-                </div>
+<div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex flex-row justify-content-between">
+        <div class="margin-tb d-flex align-items-center">
+            <h6 class="m-0 font-weight-bold text-success">Overall</h6>
+        </div>
+        <div class="margin-tb">
+            <div class="pull-right">
+                {{-- <a class="btn btn-success" href="{{ route('incomes.create') }}">+ Add Data</a> --}}
+                <button class="btn btn-success" onCLick="create()">+ Add Data</button>
             </div>
         </div>
-    
+    </div>
+    <div class="mx-3 mt-3">
         <table class="table table-bordered" style="width:100%">
             <tr>
                 <th style="width:5%">No</th>
@@ -59,7 +58,11 @@
             </tr>
             @endforeach
         </table>
+    </div>
     {!! $transactions->links() !!}
+</div>
+    
+
     </div>
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -74,7 +77,8 @@
             </div>
             </div>
         </div>
-        </div>
+    </div>
+</div>
 
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     

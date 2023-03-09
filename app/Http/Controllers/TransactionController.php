@@ -20,9 +20,6 @@ class TransactionController extends Controller
 
         $expense = Transaction::where('status', 'Expense')->sum('amount');
 
-        
-
-
 
         return view('transactions.index',compact('transactions','income',),[
             'title' => 'Transaction',

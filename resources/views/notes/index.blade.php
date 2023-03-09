@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Notes')
+
 @section('contents')
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
@@ -7,18 +9,18 @@
         </div>
     @endif
 
-    <div class="row mx-2" style="background-color: white">
-        <div class="d-flex justify-content-between">
-            <div class="margin-tb">
-                Note
-            </div>
-            <div class="margin-tb">
-                <div class="pull-right">
-                    <button class="btn btn-success" onCLick="create()">+ Add Data</button>
-                </div>
+<div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex flex-row justify-content-between">
+        <div class="margin-tb d-flex align-items-center">
+            <h6 class="m-0 font-weight-bold text-primary">Overall</h6>
+        </div>
+        <div class="margin-tb">
+            <div class="pull-right">
+            <button class="btn btn-primary" onCLick="create()">+ Add Data</button>
             </div>
         </div>
-    
+    </div>
+    <div class="mx-3 mt-3">
         <table class="table table-bordered" style="width:100%">
             <tr>
                 <th style="width:5%">No</th>
@@ -36,20 +38,23 @@
                 <td>{{ $data->description }}</td>
                 <td>
                     <button class="btn" onClick="show({{ $data->id }})"> 
-                        <svg width="42" height="36" viewBox="0 0 42 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="42" height="36" rx="5" fill="#44CD9D"/>
-                            <path d="M20 11H30M20 15H25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M15 11H13C12.4477 11 12 11.4477 12 12V14C12 14.5523 12.4477 15 13 15H15C15.5523 15 16 14.5523 16 14V12C16 11.4477 15.5523 11 15 11Z" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M20 21H30M20 25H25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M15 21H13C12.4477 21 12 21.4477 12 22V24C12 24.5523 12.4477 25 13 25H15C15.5523 25 16 24.5523 16 24V22C16 21.4477 15.5523 21 15 21Z" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <svg width="43" height="36" viewBox="0 0 43 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="0.0454102" width="42" height="36" rx="5" fill="#476BD3"/>
+                            <path d="M20.0454 11H30.0454M20.0454 15H25.0454" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M15.0454 11H13.0454C12.4931 11 12.0454 11.4477 12.0454 12V14C12.0454 14.5523 12.4931 15 13.0454 15H15.0454C15.5977 15 16.0454 14.5523 16.0454 14V12C16.0454 11.4477 15.5977 11 15.0454 11Z" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M20.0454 21H30.0454M20.0454 25H25.0454" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M15.0454 21H13.0454C12.4931 21 12.0454 21.4477 12.0454 22V24C12.0454 24.5523 12.4931 25 13.0454 25H15.0454C15.5977 25 16.0454 24.5523 16.0454 24V22C16.0454 21.4477 15.5977 21 15.0454 21Z" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </button>
                 </td>
             </tr>
             @endforeach
         </table>
-    {!! $notes->links() !!}
     </div>
+    {!! $notes->links() !!}
+</div>
+    
+
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
