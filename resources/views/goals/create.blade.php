@@ -27,6 +27,7 @@
     @csrf
   
     <input type="text" name="user_id" id="user_id" value="{{ auth()->user()->id }}" hidden/>
+    <input type="number" name="collected" id="collected" value="0" hidden/>
 
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">

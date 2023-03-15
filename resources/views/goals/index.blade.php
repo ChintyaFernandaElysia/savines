@@ -21,6 +21,7 @@
         </div>
         <div class="margin-tb">
             <div class="pull-right">
+                <button class="btn btn-primary" onCLick="input()">+ Input</button>
                 <button class="btn btn-success" onCLick="create()">+ Add Data</button>
             </div>
         </div>
@@ -29,11 +30,11 @@
         <table class="table table-bordered" style="width:100%">
             <tr>
                 <th style="width:5%">No</th>
-                <th style="width:20%">Title</th>
                 <th style="width:10%">Date</th>
-                <th style="width:15%">Amount</th>
+                <th style="width:20%">Title</th>
+                <th style="width:15%">Target</th>
                 <th style="width:15%">Collected</th>
-                <th style="width:15%">Progress Bar</th>
+                <th style="width:15%">Progress Bar</th> 
                 <th style="width:8%">Details</th>
             </tr>
             @php($no = 1)
@@ -42,8 +43,9 @@
                 <td>{{ $no++ }}</td>
                 <td>{{ $data->date }}</td>
                 <td>{{ $data->title }}</td>
-                <td>{{ $data->status }}</td>
-                <td>{{ $data->amount }}</td>
+                <td>{{ $data->target }}</td>
+                <td>{{ $data->collected }}</td>
+                <td>--</td>
                 <td>
                     <button class="btn" onClick="show({{ $data->id }})"> 
                         <svg width="42" height="36" viewBox="0 0 42 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -101,6 +103,15 @@
             });
         }
 
+        function input() {
+            console.log('tekan Input()')
+            $.get("{{url('goals/input')}}", {}, function(data, status){
+                $("#exampleModalLabel").html('Input Goals')
+                $("#page").html(data);
+                $("#exampleModal").modal('show');
+            });
+        }
+
         function store() {
             console.log('tekan store()')
             var name = $("#name").val();
@@ -117,7 +128,7 @@
 
         function show(id) {
             console.log('tekan show()')
-            $.get("{{url('transactions')}}/" + id, {}, function(data, status){
+            $.get("{{url('goals')}}/" + id, {}, function(data, status){
                 $("#exampleModalLabel").html('Edit Product')
                 $("#page").html(data);
                 $("#exampleModal").modal('show');
