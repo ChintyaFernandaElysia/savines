@@ -14,7 +14,7 @@ class GoalsController extends Controller
 	public function index()
     {
 
-        $goals = Goals::latest()->simplePaginate(5);
+        $goals = Goals::latest()->simplePaginate(5);    
 
         return view('goals.index',compact('goals'),[
             'title' => 'Goals',

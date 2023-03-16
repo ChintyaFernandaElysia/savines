@@ -30,11 +30,11 @@
         <table class="table table-bordered" style="width:100%">
             <tr>
                 <th style="width:5%">No</th>
-                <th style="width:10%">Date</th>
-                <th style="width:20%">Title</th>
+                <th style="width:17%">Date</th>
+                <th style="width:21%">Title</th>
                 <th style="width:15%">Target</th>
                 <th style="width:15%">Collected</th>
-                <th style="width:15%">Progress Bar</th> 
+                <th style="width:30%">Progress Bar</th> 
                 <th style="width:8%">Details</th>
             </tr>
             @php($no = 1)
@@ -43,9 +43,21 @@
                 <td>{{ $no++ }}</td>
                 <td>{{ $data->date }}</td>
                 <td>{{ $data->title }}</td>
-                <td>{{ $data->target }}</td>
-                <td>{{ $data->collected }}</td>
-                <td>--</td>
+                <td>{{ 'Rp'.number_format($data->target, 0, ',', '.') }}</td>
+                <td>{{ 'Rp'.number_format($data->collected, 0, ',', '.') }}</td>
+                <td>
+                    <div class="progress" style="height: 30px">
+                        @if ($data->collected != 0)
+                        <div class="progress-bar" role="progressbar" style="width: {{ $data->collected/$data->target * 100 }}%">
+                            {{ ($data->collected/$data->target) * 100 }}%
+                        </div>
+                        @else
+                        <div class="progress-bar" role="progressbar" style="width:0%">
+                            0%
+                        </div>
+                        @endif
+                    </div>
+                </td>
                 <td>
                     <button class="btn" onClick="show({{ $data->id }})"> 
                         <svg width="42" height="36" viewBox="0 0 42 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -82,7 +94,24 @@
     </div>
 </div>
 
+
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    
+    <script>
+        $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+        })
+
+        $(".animated-progress span").each(function () {
+        $(this).animate(
+            {
+            width: $(this).attr("data-progress") + "%",
+            },
+            1000
+        );
+        $(this).text($(this).attr("data-progress") + "%");
+        });
+    </script>
     
     <script>
         // show database
