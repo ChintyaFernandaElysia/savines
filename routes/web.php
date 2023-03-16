@@ -63,6 +63,8 @@ Route::middleware('auth')->group(function () {
 		Route::get('', 'index')->name('goals');
 		Route::get('read', 'read')->name('goals.read');
 		Route::get('create', 'create')->name('goals.create');
+		Route::get('input', 'input')->name('goals.input');
+		Route::post('addInput', 'addInput')->name('goals.addInput');
 		Route::post('store', 'store')->name('goals.store');
 		Route::get('{id}', 'details')->name('goals.details');
 		Route::post('update/{id}', 'update')->name('goals.update');
