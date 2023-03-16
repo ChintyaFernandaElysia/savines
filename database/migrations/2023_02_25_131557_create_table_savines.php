@@ -24,7 +24,7 @@ return new class extends Migration
 			$table->string('description');
         });
 
-        Schema::create('tbdebtsandloan', function (Blueprint $table) {
+        Schema::create('tbdebtandloan', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
             $table->timestamps();
