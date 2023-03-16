@@ -1,7 +1,7 @@
 <div class="row mx-2" style="background-color: white">
     <div class="d-flex justify-content-between">
         <div class="margin-tb">
-            Goals
+            Debt / Loan
         </div>
         <div class="margin-tb">
             <div class="pull-right">
@@ -14,13 +14,13 @@
     <table class="table table-bordered" style="width:100%">
         <tr>
             <th style="width:5%">No</th>
-            <th style="width:15%">Date</th>
+            <th style="width:10%">Date</th>
             <th style="width:20%">Title</th>
             <th style="width:15%">Status</th>
             <th style="width:15%">Amount</th>
             <th style="width:8%">Action</th>
         </tr>
-        @foreach ($transactions as $data)
+        @foreach ($debtloan as $data)
         <tr>
             <td>{{ $data->id }}</td>
             <td>{{ $data->date }}</td>
@@ -42,7 +42,7 @@
         @endforeach
     </table>
 
-{!! $transactions->links() !!}
+{!! $debtloan->links() !!}
     
 
 </div>

@@ -6,6 +6,8 @@ use App\Http\Controllers\NoteController;
 use App\Http\Controllers\GoalsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\DebtLoanController;
+use App\Http\Controllers\RepaymentandDebtCollectionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +33,7 @@ Route::controller(AuthController::class)->group(function () {
 // Route::get('/', function () {
 // 	return view('welcome');
 // });
+
 
 Route::middleware('auth')->group(function () {
 	Route::get('/', [DashboardController::class, 'index'])
@@ -66,6 +69,30 @@ Route::middleware('auth')->group(function () {
 		Route::get('{id}', 'details')->name('goals.details');
 		Route::post('update/{id}', 'update')->name('goals.update');
 		Route::get('destroy/{id}', 'destroy')->name('goals.destroy');
+	});
+
+	Route::get('/menudebtloan', function () {
+		return view('menudebtloan');
+	});
+
+	Route::controller(DebtLoanController::class)->prefix('debtloan')->group(function () {
+		Route::get('', 'index')->name('debtloan');
+		Route::get('read', 'read')->name('debtloan.read');
+		Route::get('create', 'create')->name('debtloan.create');
+		Route::post('store', 'store')->name('debtloan.store');
+		Route::get('{id}', 'details')->name('debtloan.details');
+		Route::post('update/{id}', 'update')->name('debtloan.update');
+		Route::get('destroy/{id}', 'destroy')->name('debtloan.destroy');
+	});
+
+	Route::controller(RepaymentandDebtCollectionController::class)->prefix('repaymentanddebtcollection')->group(function () {
+		Route::get('', 'index')->name('repaymentanddebtcollection');
+		Route::get('read', 'read')->name('repaymentanddebtcollection.read');
+		Route::get('create', 'create')->name('repaymentanddebtcollection.create');
+		Route::post('store', 'store')->name('repaymentanddebtcollection.store');
+		Route::get('{id}', 'details')->name('repaymentanddebtcollection.details');
+		Route::post('update/{id}', 'update')->name('repaymentanddebtcollection.update');
+		Route::get('destroy/{id}', 'destroy')->name('repaymentanddebtcollection.destroy');
 	});
 
 });

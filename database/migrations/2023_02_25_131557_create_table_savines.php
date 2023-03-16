@@ -24,27 +24,38 @@ return new class extends Migration
 			$table->string('description');
         });
 
-        Schema::create('tbdebtandclaim', function (Blueprint $table) {
+        Schema::create('tbdebtandloan', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
             $table->timestamps();
             $table->date('due_date');
-            $table->string('debtor');
+            $table->string('title');
+            $table->string('status');
+            $table->string('amount');
 			$table->string('description');
-			$table->integer('amount');
-			$table->integer('total_paid');
+			$table->integer('debtandloanperson_id');
         });
 
-        Schema::create('tbperson', function (Blueprint $table) {
+        Schema::create('tbrepaymentanddebtcollection', function (Blueprint $table) {
+            $table->id();
+            $table->integer('user_id');
+            $table->timestamps();
+            $table->date('due_date');
+            $table->string('title');
+            $table->string('amount');
+			$table->string('description');
+			$table->integer('debtandloan_id');
+        });
+
+        Schema::create('tbdebtandloadperson', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
             $table->timestamps();
             $table->string('name');
-            $table->integer('idcardnumber');
             $table->string('gender');
-            $table->string('birthday');
-            $table->string('phone_no');
+            $table->string('telp');
             $table->string('address');
+            $table->string('birthday');
         });
 
         Schema::create('tbnotes', function (Blueprint $table) {

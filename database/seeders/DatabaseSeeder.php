@@ -22,25 +22,6 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        DB::table('users')->insertOrIgnore([
-            [
-                'id' => 1,
-                'name' => 'Angel',
-                'email' => 'angel@gmail.com',
-                'password' => '111',
-                'created_at'  => '2023-01-02 10:20:04',
-                'updated_at'  => '2023-01-02 10:20:04',
-            ],
-            [
-                'id' => 2,
-                'name' => 'Chintya',
-                'email' => 'chintya@gmail.com',
-                'password' => '123',
-                'created_at'  => '2023-01-02 10:20:04',
-                'updated_at'  => '2023-01-02 10:20:04',
-            ],
-        ]);
-
         DB::table('tbtransactions')->insert([
             [
                 'id'          => '1',
@@ -165,6 +146,19 @@ class DatabaseSeeder extends Seeder
                 'title'       => 'Buy property',
                 'description' => 'Tell Dean to buy property for school event',
             ],
+        ]);
+        DB::table('tbgoals')->insertOrIgnore([
+            [
+                'id'          => '1',
+                'user_id'     => '1',
+                'date'        => '2023-01-02',
+                'created_at'  => '2023-01-02 10:20:04',
+                'updated_at'  => '2023-01-02 10:20:04',
+                'title'       => 'Buy Laptop',
+                'description' => 'Buy laptop ASUS ZenBook',
+                'target' => '18500000',
+                'collected' => '500000',
+            ]
         ]);
     }
 }
