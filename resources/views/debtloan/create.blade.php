@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Add New Transaction</h2>
+            <h2>Add New Debt / Loan</h2>
         </div>
     </div>
 </div>
@@ -17,7 +17,7 @@
     </div>
 @endif
    
-<form action="{{ route('transactions.store') }}" method="POST">
+<form action="{{ route('debtloan.store') }}" method="POST">
     @csrf
   
     <input type="text" name="user_id" id="user_id" value="{{ auth()->user()->id }}" hidden/>
@@ -49,13 +49,38 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Amount:</strong>
-                <input class="form-control" style="height:40px" name="amount" placeholder="Amount">
+                <textarea class="form-control" style="height:40px" name="amount" placeholder="Amount"></textarea>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
+            <div class="form-group">
+                <strong>Description:</strong>
+                <textarea class="form-control" style="height:150px" name="description" placeholder="Description"></textarea>
+            </div>
+        </div>
+        <h2>Person Data</h2>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Name:</strong>
+                <textarea class="form-control" style="height:40px" name="name" placeholder="Name"></textarea>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Description:</strong>
-                <textarea class="form-control" style="height:150px" name="description" placeholder="Description"></textarea>
+                <strong>Gender:</strong>
+                <textarea class="form-control" style="height:40px" name="gender" placeholder="Gender"></textarea>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Telp:</strong>
+                <textarea class="form-control" style="height:40px" name="telp" placeholder="Telp"></textarea>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Address:</strong>
+                <textarea class="form-control" style="height:40px" name="address" placeholder="Address"></textarea>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

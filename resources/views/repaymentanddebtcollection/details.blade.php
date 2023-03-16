@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Transaction Detail</h2>
+                <h2>Repayment / Debt Collection Detail</h2>
             </div>
         </div>
     </div>
@@ -19,7 +19,7 @@
     </div>
 @endif
 
-<form action="{{ route('transactions.update',$data->id) }}" method="POST">
+<form action="{{ route('repaymentanddebtcollection.update',$data->id) }}" method="POST">
     @csrf
 
      <div class="row">
@@ -33,27 +33,6 @@
             <div class="form-group">
                 <strong>Title:</strong>
                 <textarea class="form-control" style="height:40px" name="title" placeholder="Title">{{ $data->title }}</textarea>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Status:</strong>
-                <br>
-                {{-- <textarea class="form-control" style="height:40px" name="status" placeholder="Status"> --}}
-                <select class="block w-100 pt-2 pb-2 pl-2 mt-1" name="status">
-                    @if($data->status == "Expense")
-                        <option selected value="Income">Expense</option>
-                    @else
-                        <option value="Expense">Expense</option>
-                    @endif
-
-                    @if($data->status == "Income")
-                        <option selected value="Income">Income</option>
-                    @else
-                        <option value="Income">Income</option>
-                    @endif
-
-                </select>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -100,7 +79,7 @@
     <div class="row">
         <button class="btn btn-success mt-2" onClick="update({{ $data->id }})"> Update </button>
         
-        <a class="btn btn-danger" href="/transactions/destroy/{{ $data->id }}">Delete</a>
+        <a class="btn btn-danger" href="/repaymentanddebtcollection/destroy/{{ $data->id }}">Delete</a>
     </div>
 </form>
 {{-- @endsection --}}

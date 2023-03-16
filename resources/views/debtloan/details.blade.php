@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Transaction Detail</h2>
+                <h2>Debt / Loan Detail</h2>
             </div>
         </div>
     </div>
@@ -19,7 +19,7 @@
     </div>
 @endif
 
-<form action="{{ route('transactions.update',$data->id) }}" method="POST">
+<form action="{{ route('debtloan.update',$data->id) }}" method="POST">
     @csrf
 
      <div class="row">
@@ -68,39 +68,37 @@
                 <textarea class="form-control" style="height:150px" name="description" placeholder="Description">{{ $data->description }}</textarea>
             </div>
         </div>
+        <h2>Person Data</h2>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Name:</strong>
+                <textarea class="form-control" style="height:40px" name="name" placeholder="Name">{{ $data->name }}</textarea>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Gender:</strong>
+                <textarea class="form-control" style="height:40px" name="gender" placeholder="Gender">{{ $data->gender }}</textarea>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Telp:</strong>
+                <textarea class="form-control" style="height:40px" name="telp" placeholder="Telp">{{ $data->telp }}</textarea>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Address:</strong>
+                <textarea class="form-control" style="height:40px" name="address" placeholder="Address">{{ $data->address }}</textarea>
+            </div>
+        </div>
+        
     </div>
-    
-    {{-- <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Date:</strong>
-                {{ $data->date }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Title:</strong>
-                {{ $data->title }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Amount:</strong>
-                {{ $data->amount }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Description:</strong>
-                {{ $data->description }}
-            </div>
-        </div>
-    </div> --}}
-
     <div class="row">
         <button class="btn btn-success mt-2" onClick="update({{ $data->id }})"> Update </button>
         
-        <a class="btn btn-danger" href="/transactions/destroy/{{ $data->id }}">Delete</a>
+        <a class="btn btn-danger" href="/debtloan/destroy/{{ $data->id }}">Delete</a>
     </div>
 </form>
 {{-- @endsection --}}
