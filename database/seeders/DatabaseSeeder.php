@@ -166,5 +166,18 @@ class DatabaseSeeder extends Seeder
                 'description' => 'Tell Dean to buy property for school event',
             ],
         ]);
+        DB::table('tbgoals')->insertOrIgnore([
+            [
+                'id'          => '2',
+                'user_id'     => '1',
+                'date'        => '2023-01-02',
+                'created_at'  => '2023-01-02 10:20:04',
+                'updated_at'  => '2023-01-02 10:20:04',
+                'title'       => 'Buy Laptop',
+                'description' => 'Buy laptop Asus ZenBook',
+                'target' => '18500000',
+                'collected' => '500000',
+            ]
+        ]);
     }
 }
