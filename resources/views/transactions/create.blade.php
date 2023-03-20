@@ -1,3 +1,4 @@
+
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
@@ -22,11 +23,12 @@
   
     <input type="text" name="user_id" id="user_id" value="{{ auth()->user()->id }}" hidden/>
 
-     <div class="row">
+    <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Date:</strong>
                 <input type="date" class="form-control" style="height:40px" name="date" placeholder="Date">
+                {{-- <input type="text" id="datepicker" class="form-control" style="height:40px" name="date" placeholder="date"> --}}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -62,6 +64,14 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </div>
-   
-</form>
-{{-- @endsection --}}
+    {{-- <script type="text/javascript">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <link rel="stylesheet" type="text/css" href="jquery.datetimepicker.css">
+    <script>
+        $( function() {
+          $( "#datepicker" ).datepicker();
+        } );
+        </script> --}}
+
+  
