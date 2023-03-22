@@ -38,11 +38,19 @@
             @php($no = 1)
             @foreach ($debtloan as $data)
             <tr>
+                @if($data->tracking == "Paid")
+                <td class="text-success">{{ $no++ }}</td>
+                <td class="text-success">{{ $data->date }}</td>
+                <td class="text-success">{{ $data->title }}</td>
+                <td class="text-success">{{ $data->status }}</td>
+                <td class="text-success">{{ 'Rp '.number_format($data->amount, 0, ',', '.') }}</td>
+            @else
                 <td>{{ $no++ }}</td>
                 <td>{{ $data->date }}</td>
                 <td>{{ $data->title }}</td>
                 <td>{{ $data->status }}</td>
-                <td>{{ $data->amount }}</td>
+                <td>{{ 'Rp '.number_format($data->amount, 0, ',', '.') }}</td>
+            @endif
                 <td>
                     <button class="btn" onClick="show({{ $data->id }})"> 
                         <svg width="42" height="36" viewBox="0 0 42 36" fill="none" xmlns="http://www.w3.org/2000/svg">

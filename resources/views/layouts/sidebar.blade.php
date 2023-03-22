@@ -47,11 +47,11 @@
       <span>Goals</span></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/menudebtloan">
+    <a class="nav-link" href="{{ route('debtloan') }}">
       <svg width="21" class="mr-2" height="23" viewBox="0 0 21 23" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M0.5 6.48926H18.5M14.5 1.48926L19.5 6.48926L14.5 11.4893M20.5 16.4893H2.5M6.5 11.4893L1.5 16.4893L6.5 21.4893" stroke="#95B2FE" stroke-width="2"/>
         </svg>        
-      <span>Menu Debt Loan</span></a>
+      <span>Debt and Loan</span></a>
   </li>
   <hr class="sidebar-divider d-none d-md-block">
 

@@ -160,5 +160,22 @@ class DatabaseSeeder extends Seeder
                 'collected' => '500000',
             ]
         ]);
+        DB::table('tbdebtandloan')->insertOrIgnore([
+            [
+                'id'             => '1',
+                'user_id'        => '1',
+                'created_at'     => '2023-01-02 10:20:04',
+                'updated_at'     => '2023-01-02 10:20:04',
+                'date'           => '2023-01-02',
+                'due_date'       => '2023-02-02',
+                'title'          => 'Owe 500000 from angel',
+                'status'         => 'Debt',
+                'amount'         => '500000',  
+                'description'    => 'Buy laptop ASUS ZenBook',
+                'person_name'    => 'Angel',
+                'person_telp'    => '083290002122',
+                'person_address' => 'Jl. Sutoyo No. 5',
+            ]
+        ]);
     }
 }

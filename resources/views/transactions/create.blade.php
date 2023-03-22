@@ -27,7 +27,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Date:</strong>
-                <input type="date" class="form-control" style="height:40px" name="date" placeholder="Date">
+                <input type="date" class="form-control" style="height:40px" name="date" placeholder="Date" value="{{ $todayDate }}">
                 {{-- <input type="text" id="datepicker" class="form-control" style="height:40px" name="date" placeholder="date"> --}}
             </div>
         </div>
@@ -42,7 +42,7 @@
                 <strong>Status:</strong>
                 <br>
                 {{-- <input class="form-control" style="height:40px" name="status" placeholder="Status"> --}}
-                <select class="block w-100 pt-2 pb-2 pl-2 mt-1" name="status">
+                <select class="form-control" name="status">
                     <option value="Expense">Expense</option>
                     <option value="Income">Income</option>
                 </select>

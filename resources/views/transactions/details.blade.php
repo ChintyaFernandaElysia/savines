@@ -26,7 +26,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Date:</strong>
-                <input type="date" class="form-control" style="height:40px" name="date" placeholder="Date">{{ $data->date }}
+                <input type="date" class="form-control" style="height:40px" name="date" placeholder="Date" value="{{ $data->date }}">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -40,9 +40,9 @@
                 <strong>Status:</strong>
                 <br>
                 {{-- <textarea class="form-control" style="height:40px" name="status" placeholder="Status"> --}}
-                <select class="block w-100 pt-2 pb-2 pl-2 mt-1" name="status">
+                <select class="form-control" name="status">
                     @if($data->status == "Expense")
-                        <option selected value="Income">Expense</option>
+                        <option selected value="Expense">Expense</option>
                     @else
                         <option value="Expense">Expense</option>
                     @endif

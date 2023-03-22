@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\Auth;
 
 class GoalsController extends Controller
 {
@@ -80,12 +81,7 @@ class GoalsController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'date' => 'required',
-            'title' => 'required',
-            'target' => 'required',
-            'description' => 'required',
-        ]);
+        $goals['user_id'] = Auth::id();
 
         Goals::create($request->all());
 

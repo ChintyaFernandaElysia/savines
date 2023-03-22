@@ -7,6 +7,7 @@ use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class TransactionController extends Controller
 {
@@ -27,20 +28,15 @@ class TransactionController extends Controller
 
     public function create()
     {
-        return view('transactions.create',[
+        $todayDate = Carbon::now()->format('Y-m-d');
+        return view('transactions.create', compact('todayDate'),[
             'title' => 'Transaction'
         ]);
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-
-            'date' => 'required',
-            'title' => 'required',
-            'amount' => 'required',
-            'description' => 'required',
-        ]);
+        $transactions['user_id'] = Auth::id();
 
         Transaction::create($request->all());
 
@@ -74,8 +70,9 @@ class TransactionController extends Controller
     {
         $data = Transaction::findOrFail($request->id);
 
-        $data->title = $request->title;
         $data->date = $request->date;
+        $data->title = $request->title;
+        $data->status = $request->status;
         $data->amount = $request->amount;
         $data->description = $request->description;
         

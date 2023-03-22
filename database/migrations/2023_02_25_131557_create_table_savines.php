@@ -28,34 +28,16 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id');
             $table->timestamps();
+            $table->date('date');
             $table->date('due_date');
             $table->string('title');
             $table->string('status');
             $table->string('amount');
 			$table->string('description');
-			$table->integer('debtandloanperson_id');
-        });
-
-        Schema::create('tbrepaymentanddebtcollection', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id');
-            $table->timestamps();
-            $table->date('due_date');
-            $table->string('title');
-            $table->string('amount');
-			$table->string('description');
-			$table->integer('debtandloan_id');
-        });
-
-        Schema::create('tbdebtandloadperson', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id');
-            $table->timestamps();
-            $table->string('name');
-            $table->string('gender');
-            $table->string('telp');
-            $table->string('address');
-            $table->string('birthday');
+			$table->string('person_name');
+			$table->string('person_telp');
+			$table->string('person_address');
+			$table->string('tracking');
         });
 
         Schema::create('tbnotes', function (Blueprint $table) {

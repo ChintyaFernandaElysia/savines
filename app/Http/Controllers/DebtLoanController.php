@@ -6,57 +6,43 @@ use Carbon\Carbon;
 use App\Models\DebtLoan;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class DebtLoanController extends Controller
 {
 	public function index()
     {
-
         $debtloan = DebtLoan::latest()->simplePaginate(5);
 
-        // $income = DebtLoan::select('tbdebtloan')->sum('amount')->groupBy('status')->get();
-        $income = DebtLoan::where('status', 'Income')->sum('amount');
-
-        $expense = DebtLoan::where('status', 'Expense')->sum('amount');
-
-
-        return view('debtloan.index',compact('debtloan','income',),[
+        return view('debtloan.index',compact('debtloan'),[
             'title' => 'Debt/Loan',
         ])->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function create()
     {
-        return view('debtloan.create',[
-            'title' => 'Debt/Loan'
-        ]);
+        $todayDate = Carbon::now()->format('Y-m-d');
+        return view('debtloan.create', compact('todayDate')
+        );
+		
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-
-            'date' => 'required',
-            'title' => 'required',
-            'amount' => 'required',
-            'description' => 'required',
-        ]);
+        $debtandloan['user_id'] = Auth::id();
 
         DebtLoan::create($request->all());
 
         return redirect()->route('debtloan')
-                        ->with('success','Debt/Loan created successfully.');
+                        ->with('success','Data created successfully.');
     }
 
-    public function read(DebtLoan $debtloan)
+    public function read(DebtLoan $debt)
     {
-        $debtloan = DebtLoan::latest()->paginate(5);
+        $debt = DebtLoan::latest()->paginate(5);
 
-        dd($debtloan);
-
-
-        return view('debtloan.read',compact('debtloan'),[
+        return view('debtloan.read',compact('debt'),[
             'title' => 'Debt/Loan',
         ])->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -64,26 +50,26 @@ class DebtLoanController extends Controller
     public function details($id)
     {
         $data = DebtLoan::findOrFail($id);
-
-        return view('debtloan.details',[
-            'data' => $data,
-            'title' => 'Debt/Loan'
-        ]);
+        return view('debtloan.details', compact('data'));
     }
 
     public function update(Request $request)
     {
         $data = DebtLoan::findOrFail($request->id);
-
-        $data->title = $request->title;
         $data->date = $request->date;
+        $data->due_date = $request->due_date;
+        $data->title = $request->title;
+        $data->status = $request->status;
         $data->amount = $request->amount;
         $data->description = $request->description;
-        
+        $data->person_name = $request->person_name;
+        $data->person_telp = $request->person_telp;
+        $data->person_address = $request->person_address;
+        $data->tracking = $request->tracking;
         $data->save();
 
         return redirect()->route('debtloan')
-                        ->with('success','Debt/Loan updated successfully');
+                        ->with('success','Data updated successfully');
     }
 
     public function destroy($id)

@@ -43,8 +43,8 @@
                 <td>{{ $no++ }}</td>
                 <td>{{ $data->date }}</td>
                 <td>{{ $data->title }}</td>
-                <td>{{ 'Rp'.number_format($data->target, 0, ',', '.') }}</td>
-                <td>{{ 'Rp'.number_format($data->collected, 0, ',', '.') }}</td>
+                <td>{{ 'Rp '.number_format($data->target, 0, ',', '.') }}</td>
+                <td>{{ 'Rp '.number_format($data->collected, 0, ',', '.') }}</td>
                 <td>
                     <div class="progress" style="height: 30px">
                         @if ($data->collected != 0)

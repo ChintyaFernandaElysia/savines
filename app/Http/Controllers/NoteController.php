@@ -7,6 +7,7 @@ use App\Models\Note;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class NoteController extends Controller
 {
@@ -27,12 +28,7 @@ class NoteController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-
-            'date' => 'required',
-            'title' => 'required',
-            'description' => 'required',
-        ]);
+        $notes['user_id'] = Auth::id();
 
         Note::create($request->all());
 

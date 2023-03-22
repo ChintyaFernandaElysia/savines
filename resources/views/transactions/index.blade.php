@@ -42,7 +42,7 @@
                 <td>{{ $data->date }}</td>
                 <td>{{ $data->title }}</td>
                 <td>{{ $data->status }}</td> 
-                <td>{{ 'Rp'.number_format($data->amount, 0, ',', '.') }}</td>
+                <td>{{ 'Rp '.number_format($data->amount, 0, ',', '.') }}</td>
                 <td>
                     <button class="btn" onClick="show({{ $data->id }})"> 
                         <svg width="42" height="36" viewBox="0 0 42 36" fill="none" xmlns="http://www.w3.org/2000/svg">
