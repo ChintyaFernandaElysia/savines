@@ -30,6 +30,12 @@ class DashboardController extends Controller
 
         $latestExpense = Transaction::where('status', 'Expense')->latest()->first();
 
+        if ($latestExpense == null) {
+            $latestExpenseAmount = 0;
+        } else {
+            $latestExpenseAmount = $latestExpense->amount;
+        }
+                
         $notes = Note::latest()->first();
 
         $goals = Goals::latest()->first();
@@ -38,6 +44,6 @@ class DashboardController extends Controller
         
         $expenseThisMonth = Transaction::where('status','Expense')->whereMonth('created_at', date('m'))->sum('amount');
 
-        return view('dashboard', compact('labels', 'data', 'income', 'expense', 'savings','notes', 'goals', 'incomeThisMonth','expenseThisMonth','latestExpense'), ['title' => 'Dashboard']);
+        return view('dashboard', compact('labels', 'data', 'income', 'expense', 'savings','notes', 'goals', 'incomeThisMonth','expenseThisMonth','latestExpenseAmount'), ['title' => 'Dashboard']);
     }
 }

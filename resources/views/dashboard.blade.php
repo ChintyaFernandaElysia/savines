@@ -53,7 +53,7 @@
               </div>
               <div class="row no-gutters align-items-center">
                 <div class="col-auto">
-                  <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ 'Rp '.number_format($latestExpense->amount, 0, ',', '.') }}
+                  <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ 'Rp '.number_format($latestExpenseAmount, 0, ',', '.') }}
                   </div>
                 </div>
               </div>
@@ -170,8 +170,11 @@
             <div class="col mr-2">
               <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                 Notes (latest)</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $notes->title }}</div>
-              <div class="h6 mb-0 text-gray-800">{{ $notes->description }}</div>
+                @if ($notes == null)
+                @else
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $notes->title }}</div>
+                <div class="h6 mb-0 text-gray-800">{{ $notes->description }}</div>
+                @endif
             </div>
             <div class="col-auto">
               <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -188,8 +191,11 @@
             <div class="col mr-2">
               <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                 Goals (Latest)</div>
+                @if ($goals == null)
+                @else
                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $goals->title }}</div>
                 <div class="h6 mb-0 text-gray-800">{{ $goals->description }}</div>
+                @endif
               </div>
               <div class="col-auto">
                 <i class="fas fa-calendar fa-2x text-gray-300"></i>
