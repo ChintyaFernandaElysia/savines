@@ -15,13 +15,7 @@ class TransactionController extends Controller
     {
         $transactions = Transaction::latest()->simplePaginate(5);
 
-        // $income = Transaction::select('tbtransactions')->sum('amount')->groupBy('status')->get();
-        $income = Transaction::where('status', 'Income')->sum('amount');
-
-        $expense = Transaction::where('status', 'Expense')->sum('amount');
-
-
-        return view('transactions.index',compact('transactions','income'),[
+        return view('transactions.index',compact('transactions'),[
             'title' => 'Transaction',
         ])->with('i', (request()->input('page', 1) - 1) * 5);
     }

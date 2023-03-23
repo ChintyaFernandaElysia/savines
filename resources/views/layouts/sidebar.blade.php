@@ -29,8 +29,22 @@
     <a class="nav-link" href="{{ route('transactions') }}">
       <svg width="21" class="mr-2" height="23" viewBox="0 0 21 23" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M0.5 6.48926H18.5M14.5 1.48926L19.5 6.48926L14.5 11.4893M20.5 16.4893H2.5M6.5 11.4893L1.5 16.4893L6.5 21.4893" stroke="#95B2FE" stroke-width="2"/>
-        </svg>        
+      </svg>        
       <span>Transactions</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('debtloan') }}">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="20" class="mr-2" xml:space="preserve" version="1.1" viewBox="0 0 18 20">
+        <image width="18" height="20" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAUCAYAAACAl21KAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAFESURBVHgBrVTdTcMwEL47h5++ZYQyAbABDEAhG5A3oEIok5QKlVe6QSQYADYAJmhG6COI2ocNsbjEiZDcfpLl+3znL77L2Xhfrs6MogcESCEOldE6J1Y0WUPEYUhKlYkzHLOqxxABK/JspzTxC9fZ1gtEYPZofuYkcJSrc1AA41Ey99wQDhunQK683yMQAlv42pp7TkEQ/vn7hBi4aHME2m+umfdA2ubIzhiPCCECfn9woknJaZHhUvJd+Gi0x2U2qNr7gvS3Fb/arywkN2pnIYf09woh16UUPIgJl0Khq1PaG2g8lJz0Z2NIv0fSIQ65qJFDV03+FZo98Y3tR7g4wannxHAgYxDhzft7hYD5Vv9aU89NECP8vULa5O6KSN51RdrbNt+Qd+XXEawBJ+T+UFq/K1GwqVRkH7TMNl0F8VjaOhbfmsiMJf1VGywAAAAASUVORK5CYII="/>
+      </svg>    
+      <span>Debt and Loan</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('goals') }}">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="21" class="mr-2" xml:space="preserve" version="1.1" viewBox="0 0 21 21">
+        <image width="21" height="21" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAL/SURBVHgBfVTRcRoxEN2VBEwymQmpIJcKQgm4ARsqsPlkMGNTgaEC7HHifIIrgJACfOngXIFxB2QmM4nPSJtdnWSfCVgfp1tJ+3b37ZMQXhnjGdUN2CZqTIig7hcdZWvQ6aCNq9K5hO1ltM12sLxR05UxATUBlF9DDJsaoUpuxH9DMb/+oDPnHEZ7K6gcAqIhA3qbvykS3TqAFcPXCWF5fKDPy2f5d1TGwBeAC5owzFGBRhdvnRp2SmVuCx5AUkv002fp8iluObRy1rb77Urq15kK0rpJ1mXPa+sj0GryXySiUe9AD03BISUxagSUtZqGifAqkUkpKdGDOoWJ2gHos5VPVcNZYGMaAauabpjPRDLn9TlHS2MCCulwF6AHFdlEHpX9OyoFSZAgQ/fQ7rbfLCOgBPN7AEvm8ZoDLHsHZhooPMnXcG2Mtk2RjZAtzp6KIsgqAl7OHpugVDNk6AHRPuz1QzAZXxb2lDMeG8B7g4BJUQHdylzRrlWIAucCKI0CrW+icwTslgALfw7Gm6hdYuSmiOE8d36zsMndF03RrXJTpOR+KXtwLg2qePJXDOANEbbPJNqoPnoUdipnpJyd+1mbQ3Y+Q60aYevJX7FkloWBn2XWVs1DQa3x7E8iWSiLnxx3mOW212tXsxLvfD735zUq7y96Ruk+d/ROIuUWP8hDcbVwIqcm39Es52YNSvx5BRia8V5DJNjbx05QhWCAYJgAkglIrZDSAC12QLFOERpVXbu7WtDckrs1TInlCkB49w17IUGpdyp4qkh5PfAz0Kk0oMvPGDrcY0Vch/WW8Oe4ZJRHRR6ZoICr2bq1qXMs64zlNQZ/912n3zaeq29cmmWZSVfJ0bICj2mUkySAWs8kUPlWvXilLr/bc87oJJaSc+TBhh4Dr3WhSiorekoXDHga93HTgYGHUurzAUx5ypjTX9zh9/zfKB7voBGgwfF+8b7uBH0qWbkhy+wQtg/RMkvtYdDdUgnCK2PCZf6GdUMEHm7aSnT4Dky26/GW8Q8ButPGuN8oAgAAAABJRU5ErkJggg=="/>
+      </svg>            
+      <span>Goals</span></a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="{{ route('notes') }}">
@@ -38,20 +52,6 @@
         <path d="M7.5 14.4893V12.4893H17.5V14.4893H7.5ZM7.5 18.4893V16.4893H14.5V18.4893H7.5ZM5.5 22.4893C4.95 22.4893 4.479 22.2936 4.087 21.9023C3.69567 21.5103 3.5 21.0393 3.5 20.4893V6.48926C3.5 5.93926 3.69567 5.46859 4.087 5.07726C4.479 4.68526 4.95 4.48926 5.5 4.48926H6.5V2.48926H8.5V4.48926H16.5V2.48926H18.5V4.48926H19.5C20.05 4.48926 20.521 4.68526 20.913 5.07726C21.3043 5.46859 21.5 5.93926 21.5 6.48926V20.4893C21.5 21.0393 21.3043 21.5103 20.913 21.9023C20.521 22.2936 20.05 22.4893 19.5 22.4893H5.5ZM5.5 20.4893H19.5V10.4893H5.5V20.4893Z" fill="#95B2FE"/>
         </svg>        
       <span>Notes</span></a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="{{ route('goals') }}">
-      <svg width="21" class="mr-2" height="23" viewBox="0 0 21 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0.5 6.48926H18.5M14.5 1.48926L19.5 6.48926L14.5 11.4893M20.5 16.4893H2.5M6.5 11.4893L1.5 16.4893L6.5 21.4893" stroke="#95B2FE" stroke-width="2"/>
-        </svg>        
-      <span>Goals</span></a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="{{ route('debtloan') }}">
-      <svg width="21" class="mr-2" height="23" viewBox="0 0 21 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0.5 6.48926H18.5M14.5 1.48926L19.5 6.48926L14.5 11.4893M20.5 16.4893H2.5M6.5 11.4893L1.5 16.4893L6.5 21.4893" stroke="#95B2FE" stroke-width="2"/>
-        </svg>        
-      <span>Debt and Loan</span></a>
   </li>
   <hr class="sidebar-divider d-none d-md-block">
 

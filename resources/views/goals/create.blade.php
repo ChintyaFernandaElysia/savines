@@ -1,14 +1,8 @@
-{{-- @extends('incomes.layout') --}}
-  
-{{-- @section('content') --}}
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
             <h2>Add New Goals</h2>
         </div>
-        {{-- <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('transactions') }}"> Back</a>
-        </div> --}}
     </div>
 </div>
 
@@ -22,14 +16,14 @@
         </ul>
     </div>
 @endif
-   
+
 <form action="{{ route('goals.store') }}" method="POST">
     @csrf
-  
+
     <input type="text" name="user_id" id="user_id" value="{{ auth()->user()->id }}" hidden/>
     <input type="number" name="collected" id="collected" value="0" hidden/>
 
-     <div class="row">
+    <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Date:</strong>
@@ -58,6 +52,5 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </div>
-   
+
 </form>
-{{-- @endsection --}}

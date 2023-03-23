@@ -16,13 +16,13 @@
         </ul>
     </div>
 @endif
-   
+
 <form action="{{ route('debtloan.store') }}" method="POST">
     @csrf
-  
+
     <input type="text" name="user_id" id="user_id" value="{{ auth()->user()->id }}" hidden/>
 
-     <div class="row">
+    <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Date:</strong>
@@ -45,7 +45,6 @@
             <div class="form-group">
                 <strong>Status:</strong>
                 <br>
-                {{-- <input class="form-control" style="height:40px" name="status" placeholder="Status"> --}}
                 <select class="form-control" name="status">
                     <option value="Debt">Debt</option>
                     <option value="Loan">Loan</option>
@@ -92,7 +91,6 @@
             <div class="form-group">
                 <strong>Status:</strong>
                 <br>
-                {{-- <input class="form-control" style="height:40px" name="status" placeholder="Status"> --}}
                 <select class="form-control" name="tracking">
                     <option value="Unpaid">Unpaid</option>
                     <option value="Paid">Paid</option>
@@ -105,4 +103,3 @@
     </div>
 
 </form>
-{{-- @endsection --}}

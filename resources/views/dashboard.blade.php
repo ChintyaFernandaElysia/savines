@@ -5,7 +5,7 @@
 @section('contents')
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@200;300;400;500&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Kodchasan:ital,wght@0,300;1,200;1,300&family=Montserrat:ital,wght@0,200;0,300;0,800;1,200;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Parisienne&family=Playball&family=Poppins:ital,wght@0,100;0,200;0,300;0,800;0,900;1,100;1,200;1,300&family=Roboto+Condensed:wght@300;400;700&family=Roboto+Mono:ital,wght@0,100;1,100&family=Roboto:ital,wght@0,100;0,300;1,100&family=Rubik+Beastly&family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <div class="row">
-    <!-- Earnings (Monthly) Card Example -->
+    <!-- Income (This Month) -->
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card border-left-success shadow h-100 py-2">
         <div class="card-body">
@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <!-- Earnings (Monthly) Card Example -->
+    <!-- Expense (This Month) Card Example -->
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card border-left-danger shadow h-100 py-2">
         <div class="card-body">
@@ -43,7 +43,7 @@
       </div>
     </div>
 
-    <!-- Earnings (Monthly) Card Example -->
+    <!-- Expense (Latest) Card Example -->
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card border-left-info shadow h-100 py-2">
         <div class="card-body">
@@ -66,7 +66,7 @@
       </div>
     </div>
 
-    <!-- Pending Requests Card Example -->
+    <!-- Savings -->
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card border-left-warning shadow h-100 py-2">
         <div class="card-body">
@@ -162,7 +162,7 @@
   </div>
 
   <div class="row">
-    <!-- Earnings (Monthly) Card Example -->
+    <!-- Notes (Latest) Card Example -->
     <div class="col-xl-6 col-md-6 mb-4">
       <div class="card border-left-primary shadow h-100 py-2">
         <div class="card-body">
@@ -180,7 +180,7 @@
         </div>
       </div>
     </div>
-    <!-- Earnings (Monthly) Card Example -->
+    <!-- Goals (Latest) Card Example -->
     <div class="col-xl-6 col-md-6 mb-4">
       <div class="card border-left-primary shadow h-100 py-2">
         <div class="card-body">

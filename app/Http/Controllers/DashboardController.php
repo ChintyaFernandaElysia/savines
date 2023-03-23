@@ -39,18 +39,5 @@ class DashboardController extends Controller
         $expenseThisMonth = Transaction::where('status','Expense')->whereMonth('created_at', date('m'))->sum('amount');
 
         return view('dashboard', compact('labels', 'data', 'income', 'expense', 'savings','notes', 'goals', 'incomeThisMonth','expenseThisMonth','latestExpense'), ['title' => 'Dashboard']);
-
-        // $amount = Income::select(DB::raw("CAST(SUM(amount) as int) as amount"))
-        // ->GroupBy(DB::raw("Month(created_at)"))
-        // ->pluck('amount');
-
-
-        // $month = Income::select(DB::raw("MONTHNAME(created_at) as month"))
-        // ->GroupBy(DB::raw("MONTHNAME(created_at)"))
-        // ->pluck('month');
-
-        // return view('dashboard', compact('amount', 'month'));
-
-        
     }
 }

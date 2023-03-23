@@ -14,7 +14,6 @@ class GoalsController extends Controller
 {
 	public function index()
     {
-
         $goals = Goals::latest()->simplePaginate(5);    
 
         return view('goals.index',compact('goals'),[
@@ -33,12 +32,7 @@ class GoalsController extends Controller
     {
         $goals = DB::table('tbgoals')->get();
 
-        // $date = new DateTime('now');
         $date = Date::now('America/New_York')->format('Y-m-d');
-
-        // $goals = Goals::all;
-
-        // dd($date);
 
         return view('goals.input', [
             'title' => 'Goals',
@@ -56,8 +50,6 @@ class GoalsController extends Controller
 
         $collected = $goals + $request->amount;
 
-        // $data->save();
-
         DB::table('tbgoals')
         ->where('title', $request->title)
         ->update([
@@ -70,7 +62,6 @@ class GoalsController extends Controller
             'amount' => 'required',
             'description' => 'required',
         ]);
-
 
 
         Transaction::create($request->all());
@@ -92,9 +83,6 @@ class GoalsController extends Controller
     public function read(Goals $goals)
     {
         $goals = Goals::latest()->paginate(5);
-
-        // dd($goals);
-
 
         return view('goals.read',compact('goals'),[
             'title' => 'Goals',

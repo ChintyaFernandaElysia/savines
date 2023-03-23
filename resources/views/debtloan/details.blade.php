@@ -1,14 +1,11 @@
-{{-- @extends('incomes.') --}}
-  
-{{-- @section('content') --}}
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>{{ $data->status }} Detail</h2>
-            </div>
+<div class="row">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+            <h2>{{ $data->status }} Detail</h2>
         </div>
     </div>
-    @if ($errors->any())
+</div>
+@if ($errors->any())
     <div class="alert alert-danger">
         <strong>Whoops!</strong> There were some problems with your textarea.<br><br>
         <ul>
@@ -45,7 +42,6 @@
             <div class="form-group">
                 <strong>Status:</strong>
                 <br>
-                {{-- <textarea class="form-control" style="height:40px" name="status" placeholder="Status"> --}}
                 <select class="form-control" name="status">
                     @if($data->status == "Debt")
                         <option selected value="Debt">Debt</option>
@@ -119,4 +115,3 @@
         <a class="btn btn-danger" href="/debtloan/destroy/{{ $data->id }}">Delete</a>
     </div>
 </form>
-{{-- @endsection --}}

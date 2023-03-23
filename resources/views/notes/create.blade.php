@@ -26,7 +26,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Date:</strong>
-                <input type="date" class="form-control" style="height:40px" name="date" placeholder="Date">
+                <input type="date" class="form-control" style="height:40px" name="date" placeholder="Date" value={{ $todayDate }}>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

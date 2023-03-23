@@ -21,7 +21,8 @@ class NoteController extends Controller
 
     public function create()
     {
-        return view('notes.create',[
+        $todayDate = Carbon::now()->format('Y-m-d');
+        return view('notes.create', compact('todayDate'),[
             'title' => 'Note'
         ]);
     }
@@ -39,9 +40,6 @@ class NoteController extends Controller
     public function read(Note $Note)
     {
         $notes = Note::latest()->paginate(5);
-
-        dd($notes);
-
 
         return view('notes.read',compact('notes'),[
             'title' => 'Note',

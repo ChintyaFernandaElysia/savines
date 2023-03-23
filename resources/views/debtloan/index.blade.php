@@ -3,7 +3,6 @@
 @section('title', 'Debt / Loan')
 
 @section('contents')
-{{-- @extends('incomes.layout') --}}
 
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
@@ -11,9 +10,6 @@
         </div>
     @endif
 
-    {{-- <div id="read" class="mt-3">
-
-    </div> --}}
 <div class="card shadow mb-4">
     <div class="card-header py-2 d-flex flex-row justify-content-between">
         <div class="margin-tb d-flex align-items-center">
@@ -92,12 +88,6 @@
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     
     <script>
-        // // Jquery ajax
-        // $(document).ready(function(){
-        //     read()
-        // });
-
-        // show database
         function read() {
             console.log('tekan read()')
             $.get("{{url('debtloan/read')}}", {}, function(data, status){
@@ -139,5 +129,5 @@
         }
     </script>
 @endsection
-  
+
 
