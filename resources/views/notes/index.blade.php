@@ -73,12 +73,6 @@
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     
     <script>
-        // // Jquery ajax
-        // $(document).ready(function(){
-        //     read()
-        // });
-
-        // show database
         function read() {
             console.log('tekan read()')
             $.get("{{url('notes/read')}}", {}, function(data, status){
@@ -120,5 +114,5 @@
         }
     </script>
 @endsection
-  
+
 

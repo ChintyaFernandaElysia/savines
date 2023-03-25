@@ -5,7 +5,6 @@
         </div>
         <div class="margin-tb">
             <div class="pull-right">
-                {{-- <a class="btn btn-success" href="{{ route('incomes.create') }}">+ Add Data</a> --}}
                 <button class="btn btn-success" onCLick="create()">+ Add Data</button>
             </div>
         </div>
