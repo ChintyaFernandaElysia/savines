@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Goals;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
@@ -23,8 +24,9 @@ class GoalsController extends Controller
 
     public function create()
     {
-        return view('goals.create',[
-            'title' => 'Goals'
+        $todayDate = Carbon::now()->format('Y-m-d');
+        return view('goals.create', compact('todayDate'),[
+            'title' => 'Goal'
         ]);
     }
 

@@ -23,8 +23,9 @@ class DebtLoanController extends Controller
     public function create()
     {
         $todayDate = Carbon::now()->format('Y-m-d');
-        return view('debtloan.create', compact('todayDate')
-        );
+        return view('debtloan.create', compact('todayDate'),[
+            'title' => 'Debt / Loan'
+        ]);
 		
     }
 
