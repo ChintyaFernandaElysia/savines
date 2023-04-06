@@ -39,15 +39,6 @@ return new class extends Migration
 			$table->string('person_address');
 			$table->string('tracking');
         });
-
-        Schema::create('tbnotes', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id');
-            $table->date('date');
-            $table->timestamps();
-            $table->string('title');
-			$table->string('description');
-        });
         Schema::create('tbgoals', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
@@ -58,7 +49,14 @@ return new class extends Migration
 			$table->integer('target');
 			$table->integer('collected');
         });
-        
+        Schema::create('tbnotes', function (Blueprint $table) {
+            $table->id();
+            $table->integer('user_id');
+            $table->date('date');
+            $table->timestamps();
+            $table->string('title');
+            $table->string('description');
+        });
     }
 
     /**
