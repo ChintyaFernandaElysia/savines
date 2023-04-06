@@ -121,7 +121,7 @@ class DatabaseSeeder extends Seeder
                 'date'        => '2023-01-20',
                 'created_at'  => '2023-01-20',
                 'updated_at'  => '2023-01-20',
-                'title'       => 'Pay off the debt to Willy',
+                'title'       => 'Pay off the debt',
                 'description' => 'Pay 500000 to Willy on Wednesday',
             ],
             [
@@ -148,7 +148,7 @@ class DatabaseSeeder extends Seeder
                 'date'        => '2023-03-16',
                 'created_at'  => '2023-03-16',
                 'updated_at'  => '2023-03-16',
-                'title'       => 'Collect debt from Vanessa',
+                'title'       => 'Collect debt',
                 'description' => 'Collect 2000000 from Vanessa',
             ],
         ]);
@@ -213,6 +213,7 @@ class DatabaseSeeder extends Seeder
                 'person_name'    => 'Willy',
                 'person_telp'    => '083290002122',
                 'person_address' => 'Jl. Sutoyo No. 5',
+                'tracking'       => 'Paid',
             ],
             [
                 'id'             => '2',
@@ -228,6 +229,7 @@ class DatabaseSeeder extends Seeder
                 'person_name'    => 'Vanessa',
                 'person_telp'    => '08546223229',
                 'person_address' => 'Jl. Purnama No 11B',
+                'tracking'       => 'Paid',
             ],
             [
                 'id'             => '3',
@@ -243,6 +245,7 @@ class DatabaseSeeder extends Seeder
                 'person_name'    => 'Yulia',
                 'person_telp'    => '08857492110',
                 'person_address' => 'Jl. Gajah Mada No 150',
+                'tracking'       => 'Unpaid',
             ],
             [
                 'id'             => '4',
@@ -258,6 +261,7 @@ class DatabaseSeeder extends Seeder
                 'person_name'    => 'Chloe',
                 'person_telp'    => '087635423881',
                 'person_address' => 'Jl. Adi Sucipto No 16D',
+                'tracking'       => 'Unpaid',
             ],
         ]);
     }

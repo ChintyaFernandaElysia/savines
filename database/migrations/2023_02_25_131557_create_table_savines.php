@@ -48,13 +48,6 @@ return new class extends Migration
             $table->string('title');
 			$table->string('description');
         });
-
-        Schema::create('tbsavings', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id');
-            $table->timestamps();
-			$table->integer('amount');
-        });
         Schema::create('tbgoals', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');

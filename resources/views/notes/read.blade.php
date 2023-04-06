@@ -1,7 +1,7 @@
 <div class="row mx-2" style="background-color: white">
     <div class="d-flex justify-content-between">
         <div class="margin-tb">
-            Transaction
+            Note
         </div>
         <div class="margin-tb">
             <div class="pull-right">
