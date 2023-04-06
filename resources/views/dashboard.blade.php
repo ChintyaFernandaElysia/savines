@@ -16,9 +16,6 @@
               <div class="h5 mb-0 font-weight-bold text-gray-800">{{ 'Rp '.number_format($incomeThisMonth, 0, ',', '.') }}
               </div>
             </div>
-            <div class="col-auto">
-              <i class="fas fa-calendar fa-2x text-gray-300"></i>
-            </div>
           </div>
         </div>
       </div>
@@ -34,9 +31,6 @@
                 Expense (This Month)</div>
               <div class="h5 mb-0 font-weight-bold text-gray-800">{{ 'Rp '.number_format($expenseThisMonth, 0, ',', '.') }}
               </div>
-            </div>
-            <div class="col-auto">
-              <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
             </div>
           </div>
         </div>
@@ -58,9 +52,6 @@
                 </div>
               </div>
             </div>
-            <div class="col-auto">
-              <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-            </div>
           </div>
         </div>
       </div>
@@ -76,9 +67,6 @@
                 Savings</div>
               <div class="h5 mb-0 font-weight-bold text-gray-800">{{ 'Rp '.number_format($savings, 0, ',', '.') }}
               </div>
-            </div>
-            <div class="col-auto">
-              <i class="fas fa-comments fa-2x text-gray-300"></i>
             </div>
           </div>
         </div>
@@ -176,9 +164,6 @@
                 <div class="h6 mb-0 text-gray-800">{{ $notes->description }}</div>
                 @endif
             </div>
-            <div class="col-auto">
-              <i class="fas fa-calendar fa-2x text-gray-300"></i>
-            </div>
           </div>
         </div>
       </div>
@@ -196,9 +181,6 @@
                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $goals->title }}</div>
                 <div class="h6 mb-0 text-gray-800">{{ $goals->description }}</div>
                 @endif
-              </div>
-              <div class="col-auto">
-                <i class="fas fa-calendar fa-2x text-gray-300"></i>
               </div>
             </div>
           </div>
