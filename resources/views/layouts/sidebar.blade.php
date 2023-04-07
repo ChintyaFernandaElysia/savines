@@ -36,7 +36,7 @@
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="20" class="mr-2" xml:space="preserve" version="1.1" viewBox="0 0 18 20">
         <image width="18" height="20" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAUCAYAAACAl21KAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAFESURBVHgBrVTdTcMwEL47h5++ZYQyAbABDEAhG5A3oEIok5QKlVe6QSQYADYAJmhG6COI2ocNsbjEiZDcfpLl+3znL77L2Xhfrs6MogcESCEOldE6J1Y0WUPEYUhKlYkzHLOqxxABK/JspzTxC9fZ1gtEYPZofuYkcJSrc1AA41Ey99wQDhunQK683yMQAlv42pp7TkEQ/vn7hBi4aHME2m+umfdA2ubIzhiPCCECfn9woknJaZHhUvJd+Gi0x2U2qNr7gvS3Fb/arywkN2pnIYf09woh16UUPIgJl0Khq1PaG2g8lJz0Z2NIv0fSIQ65qJFDV03+FZo98Y3tR7g4wannxHAgYxDhzft7hYD5Vv9aU89NECP8vULa5O6KSN51RdrbNt+Qd+XXEawBJ+T+UFq/K1GwqVRkH7TMNl0F8VjaOhbfmsiMJf1VGywAAAAASUVORK5CYII="/>
       </svg>    
-      <span>Debt and Loan</span></a>
+      <span>Debts and Loans</span></a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="{{ route('goals') }}">

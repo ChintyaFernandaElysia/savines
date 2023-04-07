@@ -29,7 +29,7 @@
                 <th style="width:20%">Title</th>
                 <th style="width:15%">Status</th>
                 <th style="width:15%">Amount</th>
-                <th style="width:8%">Action</th>
+                <th style="width:8%">Details</th>
             </tr>
             @php($no = 1)
             @foreach ($transactions as $data)

@@ -30,7 +30,7 @@
             <div class="form-group">
                 <strong>Title:</strong>
                 <br>
-                <select class="block w-100 pt-2 pb-2 pl-2 mt-1" name="title">
+                <select class="form-control" name="title">
                     @foreach ($goals as $data)
                     <option value="{{ $data->title }}">{{ $data->title }}</option>
                     @endforeach
@@ -42,7 +42,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Amount :</strong>
-                <input type="number" class="form-control" style="height:40px" name="amount" placeholder="amount">
+                <input class="form-control" style="height:40px" name="amount" placeholder="Amount">
             </div>
         </div>
 

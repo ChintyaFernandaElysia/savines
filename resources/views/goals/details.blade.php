@@ -39,7 +39,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Target:</strong>
-                <input class="form-control" style="height:40px" name="target" placeholder="target" {{ $data->target }}>
+                <input class="form-control" style="height:40px" name="target" placeholder="Target" {{ $data->target }}>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

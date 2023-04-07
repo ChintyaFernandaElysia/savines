@@ -105,10 +105,10 @@ class DatabaseSeeder extends Seeder
                 'user_id'     => '1',
                 'created_at'  => '2023-04-02',
                 'updated_at'  => '2023-04-02',
-                'title'       => 'Buy dress',
+                'title'       => 'Buy a dress',
                 'status'      => 'Expense',
                 'amount'      => 400000,
-                'description' => 'Buy dress for party ',
+                'description' => 'Buy a dress for party ',
                 'date'        => '2023-04-02',
             ],
         ]);
@@ -188,7 +188,7 @@ class DatabaseSeeder extends Seeder
                 'title'       => 'Buy Laptop',
                 'description' => 'Buy laptop ASUS ZenBook',
                 'target'      => '18500000',
-                'collected'   => '5000000',
+                'collected'   => '4625000',
             ],
             [
                 'id'          => '2',
@@ -199,7 +199,7 @@ class DatabaseSeeder extends Seeder
                 'title'       => 'Buy Ipad',
                 'description' => 'Buy Ipad Mini 6',
                 'target'      => '9000000',
-                'collected'   => '3000000',
+                'collected'   => '3600000',
             ],
             [
                 'id'          => '3',
@@ -210,7 +210,7 @@ class DatabaseSeeder extends Seeder
                 'title'       => 'Buy Camera',
                 'description' => 'Buy Camera Sony Alpha A6000',
                 'target'      => '10000000',
-                'collected'   => '500000',
+                'collected'   => '1000000',
             ],
             [
                 'id'          => '4',

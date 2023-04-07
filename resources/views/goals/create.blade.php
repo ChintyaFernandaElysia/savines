@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Add New Goals</h2>
+            <h2>Add New Goal</h2>
         </div>
     </div>
 </div>
@@ -39,7 +39,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Target:</strong>
-                <input class="form-control" style="height:40px" name="target" placeholder="target">
+                <input class="form-control" style="height:40px" name="target" placeholder="Target">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
