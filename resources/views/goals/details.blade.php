@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Update Goals</h2>
+            <h2>Goal Detail</h2>
         </div>
     </div>
 </div>
@@ -39,13 +39,13 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Target:</strong>
-                <input class="form-control" style="height:40px" name="target" placeholder="Target" {{ $data->target }}>
+                <input class="form-control" style="height:40px" name="target" placeholder="Target" value="{{ $data->target }}">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Description:</strong>
-                <textarea class="form-control" style="height:150px" name="description" placeholder="Description"></textarea>
+                <textarea class="form-control" style="height:150px" name="description" placeholder="Description">{{ $data->description }}</textarea>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

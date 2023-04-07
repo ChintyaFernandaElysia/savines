@@ -35,7 +35,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Title:</strong>
-                <textarea class="form-control" style="height:40px" name="title" placeholder="Title">{{ $data->title }}</textarea>
+                <input class="form-control" style="height:40px" name="title" placeholder="Title" value="{{ $data->title }}">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -61,7 +61,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Amount:</strong>
-                <textarea class="form-control" style="height:40px" name="amount" placeholder="Amount">{{ $data->amount }}</textarea>
+                <input class="form-control" style="height:40px" name="amount" placeholder="Amount" value="{{ $data->amount }}">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -76,13 +76,13 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Name:</strong>
-                <textarea class="form-control" style="height:40px" name="person_name" placeholder="Name">{{ $data->person_name }}</textarea>
+                <input class="form-control" style="height:40px" name="person_name" placeholder="Name" value="{{ $data->person_name }}">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Telp:</strong>
-                <textarea class="form-control" style="height:40px" name="person_telp" placeholder="Telp">{{ $data->person_telp }}</textarea>
+                <input class="form-control" style="height:40px" name="person_telp" placeholder="Telp" value="{{ $data->person_telp }}">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
