@@ -122,7 +122,7 @@
         function create() {
             console.log('tekan create()')
             $.get("{{url('goals/create')}}", {}, function(data, status){
-                $("#exampleModalLabel").html('Create Goals')
+                $("#exampleModalLabel").html('Create Goal')
                 $("#page").html(data);
                 $("#exampleModal").modal('show');
             });
@@ -131,7 +131,7 @@
         function input() {
             console.log('tekan Input()')
             $.get("{{url('goals/input')}}", {}, function(data, status){
-                $("#exampleModalLabel").html('Input Goals')
+                $("#exampleModalLabel").html('Input Goal')
                 $("#page").html(data);
                 $("#exampleModal").modal('show');
             });
@@ -154,7 +154,7 @@
         function show(id) {
             console.log('tekan show()')
             $.get("{{url('goals')}}/" + id, {}, function(data, status){
-                $("#exampleModalLabel").html('Edit Product')
+                $("#exampleModalLabel").html('Edit Goal')
                 $("#page").html(data);
                 $("#exampleModal").modal('show');
             });

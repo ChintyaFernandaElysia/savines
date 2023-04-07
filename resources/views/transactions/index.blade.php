@@ -91,7 +91,7 @@
         function create() {
             console.log('tekan create()')
             $.get("{{url('transactions/create')}}", {}, function(data, status){
-                $("#exampleModalLabel").html('Create Product')
+                $("#exampleModalLabel").html('Create Transaction')
                 $("#page").html(data);
                 $("#exampleModal").modal('show');
             });
@@ -114,7 +114,7 @@
         function show(id) {
             console.log('tekan show()')
             $.get("{{url('transactions')}}/" + id, {}, function(data, status){
-                $("#exampleModalLabel").html('Edit Product')
+                $("#exampleModalLabel").html('Edit Transaction')
                 $("#page").html(data);
                 $("#exampleModal").modal('show');
             });

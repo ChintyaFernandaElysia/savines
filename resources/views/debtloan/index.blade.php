@@ -99,7 +99,7 @@
         function create() {
             console.log('tekan create()')
             $.get("{{url('debtloan/create')}}", {}, function(data, status){
-                $("#exampleModalLabel").html('Create Product')
+                $("#exampleModalLabel").html('Create Debt / Loan')
                 $("#page").html(data);
                 $("#exampleModal").modal('show');
             });
@@ -122,7 +122,7 @@
         function show(id) {
             console.log('tekan show()')
             $.get("{{url('debtloan')}}/" + id, {}, function(data, status){
-                $("#exampleModalLabel").html('Edit Product')
+                $("#exampleModalLabel").html('Edit Debt / Loan')
                 $("#page").html(data);
                 $("#exampleModal").modal('show');
             });

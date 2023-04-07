@@ -84,7 +84,7 @@
         function create() {
             console.log('tekan create()')
             $.get("{{url('notes/create')}}", {}, function(data, status){
-                $("#exampleModalLabel").html('Create Product')
+                $("#exampleModalLabel").html('Create Note')
                 $("#page").html(data);
                 $("#exampleModal").modal('show');
             });
@@ -107,7 +107,7 @@
         function show(id) {
             console.log('tekan show()')
             $.get("{{url('notes')}}/" + id, {}, function(data, status){
-                $("#exampleModalLabel").html('Edit Product')
+                $("#exampleModalLabel").html('Edit Note')
                 $("#page").html(data);
                 $("#exampleModal").modal('show');
             });
