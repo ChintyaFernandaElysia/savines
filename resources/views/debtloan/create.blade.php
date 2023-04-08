@@ -69,13 +69,13 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Name:</strong>
-                <input class="form-control" style="height:40px" name="name" placeholder="Name">
+                <input class="form-control" style="height:40px" name="person_name" placeholder="Name">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Telp:</strong>
-                <input class="form-control" style="height:40px" name="telp" placeholder="Telp">
+                <input class="form-control" style="height:40px" name="person_telp" placeholder="Telp">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
