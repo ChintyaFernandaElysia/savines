@@ -19,7 +19,7 @@ use App\Http\Controllers\DebtLoanController;
 |
 */
 
-Route::controller(AuthController::class)->group(function () {
+	Route::controller(AuthController::class)->group(function () {
 	Route::get('register', 'register')->name('register');
 	Route::post('register', 'registerStore')->name('register.store');
 
@@ -27,14 +27,9 @@ Route::controller(AuthController::class)->group(function () {
 	Route::post('login', 'loginAction')->name('login.action');
 
 	Route::get('logout', 'logout')->middleware('auth')->name('logout');
-});
+	});
 
-// Route::get('/', function () {
-// 	return view('welcome');
-// });
-
-
-Route::middleware('auth')->group(function () {
+	Route::middleware('auth')->group(function () {
 	Route::get('/', [DashboardController::class, 'index'])
 	->name('dashboard');
 

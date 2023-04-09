@@ -27,7 +27,7 @@
                 <th style="width:5%">No</th>
                 <th style="width:10%">Date</th>
                 <th style="width:20%">Title</th>
-                <th style="width:15%">Status</th>
+                <th style="width:10%">Status</th>
                 <th style="width:15%">Amount</th>
                 <th style="width:8%">Details</th>
             </tr>

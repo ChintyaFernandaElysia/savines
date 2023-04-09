@@ -25,9 +25,10 @@
         <table class="table table-bordered" style="width:100%">
             <tr>
                 <th style="width:5%">No</th>
-                <th style="width:10%">Date</th>
+                <th style="width:15%">Date</th>
+                <th style="width:15%">Due Date</th>
                 <th style="width:20%">Title</th>
-                <th style="width:15%">Status</th>
+                <th style="width:10%">Status</th>
                 <th style="width:15%">Amount</th>
                 <th style="width:8%">Details</th>
             </tr>
@@ -37,12 +38,14 @@
                 @if($data->tracking == "Paid")
                 <td class="text-success">{{ $no++ }}</td>
                 <td class="text-success">{{ $data->date }}</td>
+                <td class="text-success">{{ $data->due_date }}</td>
                 <td class="text-success">{{ $data->title }}</td>
                 <td class="text-success">{{ $data->status }}</td>
                 <td class="text-success">{{ 'Rp '.number_format($data->amount, 0, ',', '.') }}</td>
             @else
                 <td>{{ $no++ }}</td>
                 <td>{{ $data->date }}</td>
+                <td>{{ $data->due_date }}</td>
                 <td>{{ $data->title }}</td>
                 <td>{{ $data->status }}</td>
                 <td>{{ 'Rp '.number_format($data->amount, 0, ',', '.') }}</td>

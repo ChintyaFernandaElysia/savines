@@ -110,8 +110,7 @@
         </div>
     </div>
     <div class="row">
-        <button class="btn btn-success mt-2" onClick="update({{ $data->id }})"> Update </button>
-        
+        <button class="btn btn-success mt-2" onClick="update({{ $data->id }})"> Update </button> 
         <a class="btn btn-danger" href="/debtloan/destroy/{{ $data->id }}">Delete</a>
     </div>
 </form>

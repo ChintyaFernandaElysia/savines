@@ -13,6 +13,22 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        $incomeThisMonth = Transaction::where('status','Income')->whereMonth('created_at', date('m'))->sum('amount');
+        
+        $expenseThisMonth = Transaction::where('status','Expense')->whereMonth('created_at', date('m'))->sum('amount');
+
+        $latestExpense = Transaction::where('status', 'Expense')->latest()->first();
+
+        if ($latestExpense == null) {
+            $latestExpenseAmount = 0;
+        } else {
+            $latestExpenseAmount = $latestExpense->amount;
+        }
+
+        $income = Transaction::get()->where('status', 'Income')->sum('amount');
+        $expense = Transaction::get()->where('status', 'Expense')->sum('amount');
+        $savings = $income - $expense;
+
         $users = Transaction::select(DB::raw("SUM(amount) as count"), DB::raw("MONTHNAME(created_at) as month_name"))
         ->whereYear('created_at', date('Y'))
         ->groupBy(DB::raw("month_name"))
@@ -22,27 +38,10 @@ class DashboardController extends Controller
         $labels = $users->keys();
         $data = $users->values();
 
-        $income = Transaction::get()->where('status', 'Income')->sum('amount');
-
-        $expense = Transaction::get()->where('status', 'Expense')->sum('amount');
-
-        $savings = $income - $expense;
-
-        $latestExpense = Transaction::where('status', 'Expense')->latest()->first();
-
-        if ($latestExpense == null) {
-            $latestExpenseAmount = 0;
-        } else {
-            $latestExpenseAmount = $latestExpense->amount;
-        }
-                
         $notes = Note::latest()->first();
 
         $goals = Goals::latest()->first();
         
-        $incomeThisMonth = Transaction::where('status','Income')->whereMonth('created_at', date('m'))->sum('amount');
-        
-        $expenseThisMonth = Transaction::where('status','Expense')->whereMonth('created_at', date('m'))->sum('amount');
 
         return view('dashboard', compact('labels', 'data', 'income', 'expense', 'savings','notes', 'goals', 'incomeThisMonth','expenseThisMonth','latestExpenseAmount'), ['title' => 'Dashboard']);
     }
